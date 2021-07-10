@@ -1,0 +1,43 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util////PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ApiList///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-api-list/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ApiList/ApiList/#kotlin.collections.List[io.github.j4ckofalltrades.steam_webapi.util.Interface]/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-api-list/-api-list.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ApiList/interfaces/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-api-list/interfaces.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ISteamWebApiUtilWrapper///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-i-steam-web-api-util-wrapper/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ISteamWebApiUtilWrapper/ISteamWebApiUtilWrapper/#io.ktor.client.HttpClient/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-i-steam-web-api-util-wrapper/-i-steam-web-api-util-wrapper.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ISteamWebApiUtilWrapper/getServerInfo/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-i-steam-web-api-util-wrapper/get-server-info.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ISteamWebApiUtilWrapper/getSupportedApiList/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-i-steam-web-api-util-wrapper/get-supported-api-list.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Interface///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-interface/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Interface/Interface/#kotlin.String#kotlin.collections.List[io.github.j4ckofalltrades.steam_webapi.util.Method]/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-interface/-interface.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Interface/methods/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-interface/methods.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Interface/name/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-interface/name.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Method///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-method/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Method/Method/#kotlin.String#kotlin.Int#kotlin.String#kotlin.collections.List[io.github.j4ckofalltrades.steam_webapi.util.Parameter]#kotlin.String?/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-method/-method.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Method/description/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-method/description.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Method/httpmethod/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-method/httpmethod.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Method/name/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-method/name.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Method/parameters/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-method/parameters.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Method/version/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-method/version.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Parameter///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-parameter/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Parameter/Parameter/#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.String?/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-parameter/-parameter.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Parameter/description/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-parameter/description.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Parameter/name/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-parameter/name.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Parameter/optional/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-parameter/optional.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/Parameter/type/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-parameter/type.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ServerInfo///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-server-info/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ServerInfo/ServerInfo/#kotlin.Int#kotlin.String/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-server-info/-server-info.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ServerInfo/servertime/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-server-info/servertime.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/ServerInfo/servertimestring/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-server-info/servertimestring.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/SupportedAPI///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-supported-a-p-i/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/SupportedAPI/SupportedAPI/#io.github.j4ckofalltrades.steam_webapi.util.ApiList/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-supported-a-p-i/-supported-a-p-i.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.util/SupportedAPI/apilist/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.util/-supported-a-p-i/apilist.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi////PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi/SteamWebApi///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi/-steam-web-api/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi/SteamWebApi/SteamWebApi/#kotlin.String/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi/-steam-web-api/-steam-web-api.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi/SteamWebApi/steamWebApiUtil/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi/-steam-web-api/steam-web-api-util.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi/WebApiClient///PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi/-web-api-client/index.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi/WebApiClient/default/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi/-web-api-client/default.html
+io.github.j4ckofalltrades.steam_webapi
+io.github.j4ckofalltrades.steam_webapi.util
+
