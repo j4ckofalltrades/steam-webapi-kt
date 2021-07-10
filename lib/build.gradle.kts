@@ -65,7 +65,7 @@ tasks.withType<DokkaTask>().configureEach {
                 remoteUrl.set(
                     URL(
                         "https://github.com/j4ckofalltrades/steam-webapi-kt" +
-                            "/tree/main/src/main/kotlin"
+                            "/tree/main/lib/src/main/kotlin"
                     )
                 )
                 remoteLineSuffix.set("#L")

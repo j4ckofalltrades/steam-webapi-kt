@@ -1,12 +1,14 @@
 # steam-webapi-kt
 
 [![](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
+[![](https://img.shields.io/badge/kotlin-1.5.20-blueviolet)](https://kotlinlang.org)
+[![](https://img.shields.io/badge/ktor-1.6.1-blue)](https://ktor.io)
 
 Steam WebAPI wrapper in Kotlin and Ktor.
 
 ## Installation
 
-Add the JitPack repository to your build file and add the dependency.
+Add the JitPack repository and the dependency to your build file.
 
 ### Gradle (Kotlin)
 
@@ -16,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.0.0")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:0.2.0")
 }
 ```
 
@@ -28,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.j4ckofalltrades:steam-webapi-kt:1.0.0"
+    implementation "com.github.j4ckofalltrades:steam-webapi-kt:0.2.0"
 }
 ```
 
@@ -44,9 +46,9 @@ dependencies {
     </repositories>
 
     <dependency>
-        <groupId>com.github.User</groupId>
-        <artifactId>Repo</artifactId>
-        <version>Tag</version>
+        <groupId>com.github.j4ckofalltrades</groupId>
+        <artifactId>steam-webapi-kt</artifactId>
+        <version>0.2.0</version>
     </dependency>
 </project>
 ```
@@ -61,7 +63,7 @@ You can use either the provided `SteamWebApi` wrapper
 import io.github.j4ckofalltrades.steam_webapi.SteamWebApi
 
 val steamWebApi = SteamWebApi("web_api_key")
-steamWebApi.userApi().getServerInfo()
+steamWebApi.userApi().getPlayerSummaries(listOf("steam_ids"))
 ```
 
 or with a specific interface e.g. `ISteamUserWrapper`
