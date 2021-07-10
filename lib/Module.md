@@ -1,6 +1,6 @@
 # Module steam-webapi
 
-Steam WebAPI wrapper written in Kotlin and Ktor.
+Steam WebAPI wrapper in Kotlin and Ktor.
 
 # Package io.github.j4ckofalltrades.steam_webapi
 
