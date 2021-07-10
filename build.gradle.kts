@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "io.github.j4ckofalltrades"
-version = "1.0-SNAPSHOT"
+version = "0.1.0"
 
 var kotlinVersion = "1.5.20"
 var ktorVersion = "1.6.1"
@@ -45,7 +45,10 @@ tasks.withType<DokkaTask>().configureEach {
             sourceLink {
                 localDirectory.set(file("src/main/kotlin"))
                 remoteUrl.set(
-                    URL("https://github.com/j4ckofalltrades/steam-webapi-kt")
+                    URL(
+                        "https://github.com/j4ckofalltrades/steam-webapi-kt" +
+                            "/tree/main/src/main/kotlin"
+                    )
                 )
                 remoteLineSuffix.set("#L")
             }

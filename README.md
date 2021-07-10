@@ -1,6 +1,8 @@
 # steam-webapi-kt
 
-Steam Web API wrapper in Kotlin and Ktor.
+[![](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
+
+Steam WebAPI wrapper in Kotlin and Ktor.
 
 ## Installation
 
