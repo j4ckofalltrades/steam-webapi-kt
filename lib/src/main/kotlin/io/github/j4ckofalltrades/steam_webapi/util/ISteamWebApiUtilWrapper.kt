@@ -12,17 +12,17 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ServerInfo(
     val servertime: Int,
-    val servertimestring: String
+    val servertimestring: String,
 )
 
 @Serializable
 data class SupportedAPI(
-    val apilist: ApiList
+    val apilist: ApiList,
 )
 
 @Serializable
 data class ApiList(
-    val interfaces: List<Interface>
+    val interfaces: List<Interface>,
 )
 
 /**
@@ -32,7 +32,7 @@ data class ApiList(
 @Serializable
 data class Interface(
     val name: String,
-    val methods: List<Method>
+    val methods: List<Method>,
 )
 
 /**
@@ -48,7 +48,7 @@ data class Method(
     val version: Int,
     val httpmethod: String,
     val parameters: List<Parameter>,
-    val description: String? = ""
+    val description: String? = null,
 )
 
 /**
@@ -62,19 +62,15 @@ data class Parameter(
     val name: String,
     val type: String,
     val optional: Boolean,
-    val description: String? = ""
+    val description: String? = null,
 )
 
 internal const val GET_SERVER_INFO = "/ISteamWebAPIUtil/GetServerInfo/v1"
 internal const val GET_SUPPORTED_API_LIST = "/ISteamWebAPIUtil/GetSupportedAPIList/v1"
 
 /**
- * Wrapper for the [ISteamWebApiUtil](https://partner.steamgames.com/doc/webapi/ISteamWebAPIUtil) endpoint, methods
- * relating to the Steam WebAPI itself.
- *
- * @property webApiClient HTTP client to use to call the Steam WebAPI.
- * @constructor Creates a endpoint wrapper that calls the [ISteamWebApiUtil](https://partner.steamgames.com/doc/webapi/ISteamWebAPIUtil)
- *              endpoint with the provided http client.
+ * Wrapper for the [ISteamWebApiUtil](https://partner.steamgames.com/doc/webapi/ISteamWebAPIUtil) endpoint which
+ * contains methods relating to the Steam WebAPI itself.
  */
 class ISteamWebApiUtilWrapper constructor(private val webApiClient: HttpClient = WebApiClient.default()) {
 

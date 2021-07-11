@@ -8,7 +8,7 @@ Steam WebAPI wrapper in Kotlin and Ktor.
 
 ## Installation
 
-Add the JitPack repository and the dependency to your build file.
+Add the JitPack repository, and the dependency to your build file.
 
 ### Gradle (Kotlin)
 
@@ -71,8 +71,8 @@ or with a specific interface e.g. `ISteamUserWrapper`
 ```kotlin
 import io.github.j4ckofalltrades.steam_webapi.util.ISteamUserWrapper
 
-val userApi = new ISteamUserWrapper("web_api_key")
-userApi.getPlayerSummaries(listOf("steam_ids"))
+val steamUserApi = new ISteamUserWrapper("web_api_key")
+steamUserApi.getPlayerSummaries(listOf("steam_ids"))
 ```
 
 ## Docs

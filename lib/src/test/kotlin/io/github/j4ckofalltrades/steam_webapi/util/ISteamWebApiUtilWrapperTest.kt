@@ -1,9 +1,9 @@
 package io.github.j4ckofalltrades.steam_webapi.util
 
+import io.github.j4ckofalltrades.steam_webapi.WebApiClient.defaultConfig
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
-import io.ktor.client.features.json.JsonFeature
 import io.ktor.http.ContentType
 import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
@@ -20,6 +20,7 @@ internal class ISteamWebApiUtilWrapperTest {
     @BeforeTest
     private fun setup() {
         webApiClientMock = HttpClient(MockEngine) {
+            defaultConfig()
             engine {
                 addHandler {
                     val responseHeaders =
@@ -35,7 +36,6 @@ internal class ISteamWebApiUtilWrapperTest {
                     }
                 }
             }
-            install(JsonFeature)
         }
     }
 
