@@ -15,11 +15,11 @@ import kotlin.test.assertEquals
 
 internal class ISteamWebApiUtilWrapperTest {
 
-    private lateinit var webApiClientMock: HttpClient
+    private lateinit var steamWebApiUtil: ISteamWebApiUtilWrapper
 
     @BeforeTest
     private fun setup() {
-        webApiClientMock = HttpClient(MockEngine) {
+        val webApiClientMock = HttpClient(MockEngine) {
             defaultConfig()
             engine {
                 addHandler {
@@ -37,13 +37,15 @@ internal class ISteamWebApiUtilWrapperTest {
                 }
             }
         }
+
+        steamWebApiUtil = ISteamWebApiUtilWrapper(webApiClient = webApiClientMock)
     }
 
     @Test
     fun getServerInfo(): Unit = runBlocking {
         assertEquals(
             Json.decodeFromString(SERVER_INFO_JSON),
-            ISteamWebApiUtilWrapper(webApiClientMock).getServerInfo()
+            steamWebApiUtil.getServerInfo()
         )
     }
 
@@ -51,7 +53,7 @@ internal class ISteamWebApiUtilWrapperTest {
     fun getSupportedApiList(): Unit = runBlocking {
         assertEquals(
             Json.decodeFromString(SUPPORTED_API_JSON),
-            ISteamWebApiUtilWrapper(webApiClientMock).getSupportedApiList()
+            steamWebApiUtil.getSupportedApiList()
         )
     }
 }

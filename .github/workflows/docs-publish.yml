@@ -2,8 +2,8 @@ name: Publish docs to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # Set a branch to deploy
+    tags:
+      - 'v*.*.*'
 
 jobs:
   docs:

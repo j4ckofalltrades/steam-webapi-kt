@@ -36,44 +36,6 @@ java {
     withSourcesJar()
 }
 
-tasks.jar {
-    manifest {
-        attributes(
-            mapOf(
-                "Implementation-Title" to rootProject.name,
-                "Implementation-Version" to project.version
-            )
-        )
-    }
-    archiveBaseName.set("steam-webapi-kt")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<DokkaTask>().configureEach {
-    dokkaSourceSets {
-        named("main") {
-            outputDirectory.set(file("docs"))
-            moduleName.set("steam-webapi")
-            includes.from("Module.md")
-            displayName.set("JVM")
-            platform.set(org.jetbrains.dokka.Platform.jvm)
-            sourceLink {
-                localDirectory.set(file("src/main/kotlin"))
-                remoteUrl.set(
-                    URL(
-                        "https://github.com/j4ckofalltrades/steam-webapi-kt" +
-                            "/tree/main/lib/src/main/kotlin"
-                    )
-                )
-                remoteLineSuffix.set("#L")
-            }
-        }
-    }
-}
-
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
@@ -113,6 +75,54 @@ publishing {
                     developerConnection.set("scm:git:ssh://github.com/j4ckofalltrades/steam-webapi-kt.git")
                     url.set("https://github.com/j4ckofalltrades/steam-webapi-kt")
                 }
+            }
+        }
+    }
+}
+
+tasks.register("installGitHook", Copy::class) {
+    from("../hooks/pre-commit")
+    from("../hooks/pre-push")
+    into("../.git/hooks")
+}
+
+tasks.compileKotlin {
+    dependsOn("installGitHook")
+}
+
+tasks.jar {
+    manifest {
+        attributes(
+            mapOf(
+                "Implementation-Title" to rootProject.name,
+                "Implementation-Version" to project.version
+            )
+        )
+    }
+    archiveBaseName.set("steam-webapi-kt")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.withType<DokkaTask>().configureEach {
+    dokkaSourceSets {
+        named("main") {
+            outputDirectory.set(file("docs"))
+            moduleName.set("steam-webapi")
+            includes.from("Module.md")
+            displayName.set("JVM")
+            platform.set(org.jetbrains.dokka.Platform.jvm)
+            sourceLink {
+                localDirectory.set(file("src/main/kotlin"))
+                remoteUrl.set(
+                    URL(
+                        "https://github.com/j4ckofalltrades/steam-webapi-kt" +
+                            "/tree/main/lib/src/main/kotlin"
+                    )
+                )
+                remoteLineSuffix.set("#L")
             }
         }
     }

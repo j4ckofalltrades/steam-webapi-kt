@@ -1,6 +1,9 @@
 clean:
 	./gradlew clean
 
+test: clean
+	./gradlew check
+
 build: clean
 	./gradlew build
 

@@ -4,6 +4,7 @@ import io.github.j4ckofalltrades.steam_webapi.user.ISteamUserWrapper
 import io.github.j4ckofalltrades.steam_webapi.util.ISteamWebApiUtilWrapper
 
 typealias WebApiKey = String
+typealias AppId = Long
 typealias SteamId = String
 
 /**

@@ -17,6 +17,10 @@ Wrapper and convenience methods around the following Steam WebAPI endpoints:
  - [ISteamUserStats](https://partner.steamgames.com/doc/webapi/ISteamUserStats)
  - [ISteamWebAPIUtil](https://partner.steamgames.com/doc/webapi/ISteamWebAPIUtil)
 
+# Package io.github.j4ckofalltrades.steam_webapi.apps
+
+Methods and types relating to Steam apps.
+
 # Package io.github.j4ckofalltrades.steam_webapi.user
 
 Methods and types relating to Steam users.

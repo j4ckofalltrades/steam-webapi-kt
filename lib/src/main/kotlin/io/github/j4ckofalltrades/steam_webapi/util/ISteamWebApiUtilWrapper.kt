@@ -3,27 +3,29 @@ package io.github.j4ckofalltrades.steam_webapi.util
 import io.github.j4ckofalltrades.steam_webapi.WebApiClient
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+internal const val GET_SERVER_INFO = "/ISteamWebAPIUtil/GetServerInfo/v1"
+internal const val GET_SUPPORTED_API_LIST = "/ISteamWebAPIUtil/GetSupportedAPIList/v1"
+
 /**
- * @property servertime[Int] Unix timestamp of WebAPI server.
- * @property servertimestring[String] Time string of WebAPI server.
+ * @property serverTime[Int] Unix timestamp of WebAPI server.
+ * @property serverTimeString[String] Time string of WebAPI server.
  */
 @Serializable
 data class ServerInfo(
-    val servertime: Int,
-    val servertimestring: String,
+    @SerialName("servertime")
+    val serverTime: Int,
+    @SerialName("servertimestring")
+    val serverTimeString: String,
 )
 
 @Serializable
-data class SupportedAPI(
-    val apilist: ApiList,
-)
+data class SupportedAPI(@SerialName("apilist") val apiList: ApiList)
 
 @Serializable
-data class ApiList(
-    val interfaces: List<Interface>,
-)
+data class ApiList(val interfaces: List<Interface>)
 
 /**
  * @property name[String] Name of the interface.
@@ -38,7 +40,7 @@ data class Interface(
 /**
  * @property name[String] Name of method.
  * @property version[Int] Version of method.
- * @property httpmethod[String] Allowed HTTP method for method (GET, POST).
+ * @property httpMethod[String] Allowed HTTP method for method (GET, POST).
  * @property parameters[List] List of parameters.
  * @property description[String] (Optional) API documentation of method.
  */
@@ -46,7 +48,8 @@ data class Interface(
 data class Method(
     val name: String,
     val version: Int,
-    val httpmethod: String,
+    @SerialName("httpmethod")
+    val httpMethod: String,
     val parameters: List<Parameter>,
     val description: String? = null,
 )
@@ -65,9 +68,6 @@ data class Parameter(
     val description: String? = null,
 )
 
-internal const val GET_SERVER_INFO = "/ISteamWebAPIUtil/GetServerInfo/v1"
-internal const val GET_SUPPORTED_API_LIST = "/ISteamWebAPIUtil/GetSupportedAPIList/v1"
-
 /**
  * Wrapper for the [ISteamWebApiUtil](https://partner.steamgames.com/doc/webapi/ISteamWebAPIUtil) endpoint which
  * contains methods relating to the Steam WebAPI itself.
@@ -77,14 +77,10 @@ class ISteamWebApiUtilWrapper constructor(private val webApiClient: HttpClient =
     /**
      * Returns WebAPI server time & checks server status.
      */
-    suspend fun getServerInfo(): ServerInfo {
-        return webApiClient.get(path = GET_SERVER_INFO)
-    }
+    suspend fun getServerInfo(): ServerInfo = webApiClient.get(path = GET_SERVER_INFO)
 
     /**
      * Gets the list of supported API calls.
      */
-    suspend fun getSupportedApiList(): SupportedAPI {
-        return webApiClient.get(path = GET_SUPPORTED_API_LIST)
-    }
+    suspend fun getSupportedApiList(): SupportedAPI = webApiClient.get(path = GET_SUPPORTED_API_LIST)
 }
