@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:0.2.0")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:0.3.0")
 }
 ```
 
@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.j4ckofalltrades:steam-webapi-kt:0.2.0"
+    implementation "com.github.j4ckofalltrades:steam-webapi-kt:0.3.0"
 }
 ```
 
@@ -55,7 +55,7 @@ dependencies {
 
 ## Usage
 
-**This requires a Steam Web API Key, you can get one at https://steamcommunity.com/dev/apikey**
+**This requires a Steam WebAPI Key, you can get one at https://steamcommunity.com/dev/apikey**
 
 You can use either the provided `SteamWebApi` wrapper
 

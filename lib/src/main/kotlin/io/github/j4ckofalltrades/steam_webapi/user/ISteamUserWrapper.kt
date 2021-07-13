@@ -178,7 +178,7 @@ data class VanityURLResponseWrapper(val response: VanityURLResponse)
 
 /**
  * @property success[Int] The status of the request. 1 if successful, 42 if there was no match.
- * @property steamid[SteamId] (Optional) The 64 bit Steam ID the vanity URL resolves to. Not returned on resolution
+ * @property steamId[SteamId] (Optional) The 64 bit Steam ID the vanity URL resolves to. Not returned on resolution
  *           failures.
  * @property message[String] (Optional) The message associated with the request status. Currently only used on
  *           resolution failures.
@@ -186,7 +186,8 @@ data class VanityURLResponseWrapper(val response: VanityURLResponse)
 @Serializable
 data class VanityURLResponse(
     val success: Int,
-    val steamid: SteamId? = null,
+    @SerialName("steamid")
+    val steamId: SteamId? = null,
     val message: String? = null,
 )
 
