@@ -1,5 +1,4 @@
 import org.jetbrains.dokka.gradle.DokkaTask
-import java.net.URI
 import java.net.URL
 
 plugins {
@@ -86,12 +85,14 @@ tasks {
     val sourcesJar by registering(Jar::class) {
         dependsOn(JavaPlugin.CLASSES_TASK_NAME)
         archiveClassifier.set("sources")
+        archiveBaseName.set("steam-webapi-kt")
         from(sourceSets["main"].allSource)
     }
 
     val javadocJar by registering(Jar::class) {
         dependsOn("dokkaJavadoc")
         archiveClassifier.set("javadoc")
+        archiveBaseName.set("steam-webapi-kt")
         from("docs")
     }
 
@@ -100,11 +101,6 @@ tasks {
         archives(javadocJar)
         archives(jar)
     }
-}
-
-java {
-    withJavadocJar()
-    withSourcesJar()
 }
 
 publishing {
@@ -150,11 +146,20 @@ publishing {
                 }
             }
         }
+        create<MavenPublication>("gpr") {
+            groupId = project.group.toString()
+            artifactId = rootProject.name
+            version = project.version.toString()
+
+            from(components["java"])
+            artifact(tasks["sourcesJar"])
+            artifact(tasks["javadocJar"])
+        }
     }
     repositories {
         maven {
             name = "OSSRH"
-            url = URI("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
                 username = System.getenv("OSSRH_USERNAME")
                 password = System.getenv("OSSRH_PASSWORD")
@@ -162,7 +167,7 @@ publishing {
         }
         maven {
             name = "GitHubPackages"
-            url = URI("https://maven.pkg.github.com/j4ckofalltrades/steam-webapi-kt")
+            url = uri("https://maven.pkg.github.com/j4ckofalltrades/steam-webapi-kt")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
