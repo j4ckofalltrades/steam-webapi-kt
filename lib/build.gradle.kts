@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "io.github.j4ckofalltrades"
-version = "0.3.0"
+version = "0.3.1"
 
 var kotlinVersion = "1.5.20"
 var ktorVersion = "1.6.1"
@@ -114,17 +114,9 @@ publishing {
             artifact(tasks["sourcesJar"])
             artifact(tasks["javadocJar"])
 
-            versionMapping {
-                usage("java-api") {
-                    fromResolutionOf("runtimeClasspath")
-                }
-                usage("java-runtime") {
-                    fromResolutionResult()
-                }
-            }
             pom {
                 name.set("steam-webapi-kt")
-                description.set("Steam WebAPI wrapper in Kotlin and Ktor.")
+                description.set("Steam WebAPI wrapper in Kotlin and Ktor")
                 url.set("https://github.com/j4ckofalltrades/steam-webapi-kt")
                 licenses {
                     license {
@@ -145,15 +137,6 @@ publishing {
                     url.set("https://github.com/j4ckofalltrades/steam-webapi-kt")
                 }
             }
-        }
-        create<MavenPublication>("gpr") {
-            groupId = project.group.toString()
-            artifactId = rootProject.name
-            version = project.version.toString()
-
-            from(components["java"])
-            artifact(tasks["sourcesJar"])
-            artifact(tasks["javadocJar"])
         }
     }
     repositories {
@@ -177,6 +160,10 @@ publishing {
 }
 
 signing {
+    setRequired({
+        gradle.taskGraph.hasTask("publishMavenJavaToOSSRHRepository")
+    })
+
     val signingKey = System.getenv("SIGNING_KEY")
     val signingPassword = System.getenv("SIGNING_PASSWORD")
     useInMemoryPgpKeys(signingKey, signingPassword)

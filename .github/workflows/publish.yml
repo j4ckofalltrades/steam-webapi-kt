@@ -12,12 +12,10 @@ jobs:
         with:
           distribution: 'adopt-openj9'
           java-version: '11'
-      - run: ./gradlew publishGprPublicationToGithubPackagesRepository
+      - run: ./gradlew publish
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: ./gradlew publishMavenJavaPublicationToOSSRHRepository
-        env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}

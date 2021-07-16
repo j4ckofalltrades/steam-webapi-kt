@@ -1,16 +1,48 @@
 # steam-webapi-kt
 
-[![](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
-[![](https://img.shields.io/badge/kotlin-1.5.20-blueviolet)](https://kotlinlang.org)
-[![](https://img.shields.io/badge/ktor-1.6.1-blue)](https://ktor.io)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.j4ckofalltrades/steam-webapi-kt.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.j4ckofalltrades/steam-webapi-kt)
+[![JitPack](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.5.20-blueviolet)](https://kotlinlang.org)
+[![Ktor](https://img.shields.io/badge/ktor-1.6.1-blue)](https://ktor.io)
+
+[![KDoc](https://img.shields.io/badge/kdoc-0.3.1-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
+[![javadoc](https://javadoc.io/badge2/io.github.j4ckofalltrades/steam-webapi-kt/javadoc.svg)](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt)
 
 Steam WebAPI wrapper in Kotlin and Ktor.
 
 ## Installation
 
-Add the JitPack repository, and the dependency to your build file.
+### Gradle Kotlin DSL
 
-### Gradle (Kotlin)
+```kotlin
+dependencies {
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:0.3.1")
+}
+```
+
+### Gradle Groovy DSL
+
+```groovy
+dependencies {
+    implementation "com.github.j4ckofalltrades:steam-webapi-kt:0.3.1"
+}
+```
+
+### Apache Maven
+
+```xml
+<dependency>
+    <groupId>com.github.j4ckofalltrades</groupId>
+    <artifactId>steam-webapi-kt</artifactId>
+    <version>0.3.1</version>
+</dependency>
+```
+
+### Installing from the JitPack repository
+
+Add the JitPack repository to the list of repositories, and then add the package as a dependency.
+
+Sample using Kotlin DSL:
 
 ```kotlin
 repositories {
@@ -18,39 +50,28 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:0.3.0")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:0.3.1")
 }
 ```
 
-### Gradle (Groovy)
+### Installing via GitHub Packages
 
-```groovy
-repositories {
-    maven { url "https://jitpack.io" }
-}
+1. Authenticate to GitHub Packages. For more information, see ["Authenticating to GitHub Packages"](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry#authenticating-to-github-packages).
 
+2. Add the package as a dependency.
+
+```kotlin
 dependencies {
-    implementation "com.github.j4ckofalltrades:steam-webapi-kt:0.3.0"
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:0.3.1")
 }
 ```
 
-### Maven
+3. (Optional) If using Gradle, add the `maven` plugin to your build file.
 
-```xml
-<project>
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-
-    <dependency>
-        <groupId>com.github.j4ckofalltrades</groupId>
-        <artifactId>steam-webapi-kt</artifactId>
-        <version>0.2.0</version>
-    </dependency>
-</project>
+```kotlin
+plugins {
+    `maven`
+}
 ```
 
 ## Usage
@@ -77,4 +98,8 @@ steamUserApi.getPlayerSummaries(listOf("steam_ids"))
 
 ## Docs
 
-For more detailed documentation see https://j4ckofalltrades.github.io/steam-webapi-kt.
+For more detailed documentation see:
+
+- [KDoc](https://j4ckofalltrades.github.io/steam-webapi-kt)
+
+- [Javadoc](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt/latest)
