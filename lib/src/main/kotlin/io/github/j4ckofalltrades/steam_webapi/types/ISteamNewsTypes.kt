@@ -1,6 +1,6 @@
 package io.github.j4ckofalltrades.steam_webapi.types
 
-import io.github.j4ckofalltrades.steam_webapi.AppId
+import io.github.j4ckofalltrades.steam_webapi.core.AppId
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

@@ -1,7 +1,7 @@
-package io.github.j4ckofalltrades.steam_webapi.apps
+package io.github.j4ckofalltrades.steam_webapi.wrapper
 
-import io.github.j4ckofalltrades.steam_webapi.AppId
-import io.github.j4ckofalltrades.steam_webapi.WebApiClient
+import io.github.j4ckofalltrades.steam_webapi.core.AppId
+import io.github.j4ckofalltrades.steam_webapi.core.WebApiClient
 import io.github.j4ckofalltrades.steam_webapi.types.AppListWrapper
 import io.github.j4ckofalltrades.steam_webapi.types.UpToDateCheckWrapper
 import io.ktor.client.HttpClient

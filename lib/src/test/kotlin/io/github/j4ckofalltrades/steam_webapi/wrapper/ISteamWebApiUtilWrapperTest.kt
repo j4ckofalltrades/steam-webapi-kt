@@ -1,6 +1,6 @@
-package io.github.j4ckofalltrades.steam_webapi.util
+package io.github.j4ckofalltrades.steam_webapi.wrapper
 
-import io.github.j4ckofalltrades.steam_webapi.WebApiClient.defaultConfig
+import io.github.j4ckofalltrades.steam_webapi.core.WebApiClient.defaultConfig
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond

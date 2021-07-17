@@ -56,10 +56,6 @@ tasks.jar {
     archiveBaseName.set("steam-webapi-kt")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-
 tasks.withType<DokkaTask>().configureEach {
     dokkaSourceSets {
         named("main") {
@@ -183,12 +179,13 @@ tasks.jacocoTestReport {
     }
     classDirectories.setFrom(
         sourceSets.main.get().output.asFileTree.matching {
-            exclude("**/types/*")
+            exclude("**/types/*", "**/core/*")
         }
     )
 }
 
 tasks.test {
+    useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
 }
 

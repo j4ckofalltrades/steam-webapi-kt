@@ -1,6 +1,6 @@
-package io.github.j4ckofalltrades.steam_webapi.util
+package io.github.j4ckofalltrades.steam_webapi.wrapper
 
-import io.github.j4ckofalltrades.steam_webapi.WebApiClient
+import io.github.j4ckofalltrades.steam_webapi.core.WebApiClient
 import io.github.j4ckofalltrades.steam_webapi.types.ServerInfo
 import io.github.j4ckofalltrades.steam_webapi.types.SupportedAPI
 import io.ktor.client.HttpClient

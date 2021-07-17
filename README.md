@@ -7,6 +7,7 @@
 
 [![KDoc](https://img.shields.io/badge/kdoc-0.3.1-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
 [![javadoc](https://javadoc.io/badge2/io.github.j4ckofalltrades/steam-webapi-kt/javadoc.svg)](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt)
+[![codecov](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt/branch/main/graph/badge.svg?token=2IDBVWIE7T)](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt)
 
 Steam WebAPI wrapper in Kotlin and Ktor.
 
@@ -81,7 +82,7 @@ plugins {
 You can use either the provided `SteamWebApi` wrapper
 
 ```kotlin
-import io.github.j4ckofalltrades.steam_webapi.SteamWebApi
+import io.github.j4ckofalltrades.steam_webapi.core.SteamWebApi
 
 val steamWebApi = SteamWebApi("web_api_key")
 steamWebApi.userApi().getPlayerSummaries(listOf("steam_ids"))
@@ -90,7 +91,7 @@ steamWebApi.userApi().getPlayerSummaries(listOf("steam_ids"))
 or with a specific interface e.g. `ISteamUserWrapper`
 
 ```kotlin
-import io.github.j4ckofalltrades.steam_webapi.util.ISteamUserWrapper
+import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamUserWrapper
 
 val steamUserApi = new ISteamUserWrapper("web_api_key")
 steamUserApi.getPlayerSummaries(listOf("steam_ids"))

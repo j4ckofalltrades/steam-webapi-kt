@@ -1,9 +1,9 @@
-package io.github.j4ckofalltrades.steam_webapi
+package io.github.j4ckofalltrades.steam_webapi.core
 
-import io.github.j4ckofalltrades.steam_webapi.apps.ISteamAppsWrapper
-import io.github.j4ckofalltrades.steam_webapi.news.ISteamNewsWrapper
-import io.github.j4ckofalltrades.steam_webapi.user.ISteamUserWrapper
-import io.github.j4ckofalltrades.steam_webapi.util.ISteamWebApiUtilWrapper
+import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamAppsWrapper
+import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamNewsWrapper
+import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamUserWrapper
+import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamWebApiUtilWrapper
 
 typealias WebApiKey = String
 typealias AppId = Long

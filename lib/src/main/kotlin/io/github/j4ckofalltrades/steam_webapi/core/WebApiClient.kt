@@ -1,4 +1,4 @@
-package io.github.j4ckofalltrades.steam_webapi
+package io.github.j4ckofalltrades.steam_webapi.core
 
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig

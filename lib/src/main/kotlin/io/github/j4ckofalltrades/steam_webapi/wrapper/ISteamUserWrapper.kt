@@ -1,8 +1,8 @@
-package io.github.j4ckofalltrades.steam_webapi.user
+package io.github.j4ckofalltrades.steam_webapi.wrapper
 
-import io.github.j4ckofalltrades.steam_webapi.SteamId
-import io.github.j4ckofalltrades.steam_webapi.WebApiClient
-import io.github.j4ckofalltrades.steam_webapi.WebApiKey
+import io.github.j4ckofalltrades.steam_webapi.core.SteamId
+import io.github.j4ckofalltrades.steam_webapi.core.WebApiClient
+import io.github.j4ckofalltrades.steam_webapi.core.WebApiKey
 import io.github.j4ckofalltrades.steam_webapi.types.FriendListWrapper
 import io.github.j4ckofalltrades.steam_webapi.types.FriendRelationship
 import io.github.j4ckofalltrades.steam_webapi.types.PlayerBanList
