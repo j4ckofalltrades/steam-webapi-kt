@@ -1,6 +1,7 @@
 package io.github.j4ckofalltrades.steam_webapi.news
 
 import io.github.j4ckofalltrades.steam_webapi.WebApiClient.defaultConfig
+import io.github.j4ckofalltrades.steam_webapi.types.NewsForAppParams
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond

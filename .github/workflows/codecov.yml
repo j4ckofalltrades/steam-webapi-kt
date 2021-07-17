@@ -1,4 +1,4 @@
-name: Build
+name: Codecov
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  coverage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,4 +15,9 @@ jobs:
           distribution: 'adopt-openj9'
           java-version: '11'
       - run: |
-          ./gradlew ktlintCheck build
+          ./gradlew test check
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./lib/build/reports/jacoco/test/jacocoTestReport.xml

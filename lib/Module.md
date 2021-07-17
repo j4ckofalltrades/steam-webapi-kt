@@ -15,16 +15,20 @@ Wrapper and convenience methods around the following Steam WebAPI endpoints:
 
 # Package io.github.j4ckofalltrades.steam_webapi.apps
 
-Methods and types relating to Steam apps.
+Methods relating to Steam apps.
 
 # Package io.github.j4ckofalltrades.steam_webapi.news
 
-Methods and types relating to Steam news.
+Methods relating to Steam news.
 
 # Package io.github.j4ckofalltrades.steam_webapi.user
 
-Methods and types relating to Steam users.
+Methods relating to Steam users.
+
+# Package io.github.j4ckofalltrades.steam_webapi.types
+
+Type definitions for request and response objects when interacting with the Steam WebAPI endpoints.
 
 # Package io.github.j4ckofalltrades.steam_webapi.util
 
-Methods and types relating to the Steam WebAPI itself.
+Methods relating to the Steam WebAPI itself.
