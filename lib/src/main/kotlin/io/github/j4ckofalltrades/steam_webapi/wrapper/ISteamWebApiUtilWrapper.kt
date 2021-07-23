@@ -13,7 +13,7 @@ internal const val GET_SUPPORTED_API_LIST = "/ISteamWebAPIUtil/GetSupportedAPILi
  * Wrapper for the [ISteamWebApiUtil](https://partner.steamgames.com/doc/webapi/ISteamWebAPIUtil) endpoint which
  * contains methods relating to the Steam WebAPI itself.
  */
-class ISteamWebApiUtilWrapper constructor(private val webApiClient: HttpClient = WebApiClient.default()) {
+class ISteamWebApiUtilWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
 
     /**
      * Returns WebAPI server time & checks server status.

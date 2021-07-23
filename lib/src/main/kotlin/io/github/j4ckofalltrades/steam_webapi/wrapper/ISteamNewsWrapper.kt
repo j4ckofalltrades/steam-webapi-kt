@@ -14,7 +14,7 @@ internal const val GET_NEWS_FOR_APP = "/ISteamNews/GetNewsForApp/v2"
  * Wrapper for the [ISteamNews](https://partner.steamgames.com/doc/webapi/ISteamNews) endpoint which contains methods
  * relating to the Steam news.
  */
-class ISteamNewsWrapper constructor(private val webApiClient: HttpClient = WebApiClient.default()) {
+class ISteamNewsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
 
     /**
      * Get the news for the specified app.
@@ -22,7 +22,7 @@ class ISteamNewsWrapper constructor(private val webApiClient: HttpClient = WebAp
      * @param appId[AppId] AppID to retrieve news for.
      * @param params[NewsForAppParams] (Optional) Additional request parameters.
      */
-    suspend fun getNewsForApp(appId: AppId, params: NewsForAppParams): AppNewsWrapper =
+    suspend fun getNewsForApp(appId: AppId, params: NewsForAppParams = NewsForAppParams()): AppNewsWrapper =
         webApiClient.get(path = GET_NEWS_FOR_APP) {
             parameter("appid", appId)
             parameter("count", params.count)

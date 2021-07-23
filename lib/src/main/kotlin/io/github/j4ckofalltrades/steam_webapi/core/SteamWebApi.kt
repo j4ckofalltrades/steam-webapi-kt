@@ -13,7 +13,7 @@ typealias SteamId = String
  * Wrapper around the [Steam WebAPI](https://partner.steamgames.com/doc/webapi) endpoints, and is accessed via the
  * provided [webApikey].
  */
-class SteamWebApi constructor(private val webApikey: WebApiKey) {
+class SteamWebApi(private val webApikey: WebApiKey) {
 
     private val appsApi: ISteamAppsWrapper by lazy {
         ISteamAppsWrapper()

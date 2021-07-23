@@ -7,6 +7,7 @@ import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.ContentType
 import io.ktor.http.headersOf
+import io.ktor.util.date.getTimeMillis
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -43,7 +44,23 @@ internal class ISteamNewsWrapperTest {
     fun getNewsForApp() = runBlocking {
         assertEquals(
             Json.decodeFromString(NEWS_FOR_APP_JSON),
-            newsApi.getNewsForApp(appId = 570, params = NewsForAppParams(maxLength = 5))
+            newsApi.getNewsForApp(appId = 570)
+        )
+    }
+
+    @Test
+    fun getNewsForAppWithParams() = runBlocking {
+        assertEquals(
+            Json.decodeFromString(NEWS_FOR_APP_JSON),
+            newsApi.getNewsForApp(
+                appId = 570,
+                params = NewsForAppParams(
+                    maxLength = 5,
+                    endDate = getTimeMillis().toInt(),
+                    count = 10,
+                    feeds = "default"
+                )
+            )
         )
     }
 }

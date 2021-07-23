@@ -15,7 +15,7 @@ internal const val UP_TO_DATE_CHECK = "/ISteamApps/UpToDateCheck/v1"
  * Wrapper for the [ISteamApps](https://partner.steamgames.com/doc/webapi/ISteamApps) endpoint which contains methods
  * relating to the Steam apps.
  */
-class ISteamAppsWrapper constructor(private val webApiClient: HttpClient = WebApiClient.default()) {
+class ISteamAppsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
 
     /**
      * Full list of every publicly facing program in the store/library.
@@ -25,7 +25,7 @@ class ISteamAppsWrapper constructor(private val webApiClient: HttpClient = WebAp
     /**
      * Check if a given app version is the most current available.
      *
-     * @param appId[App] AppID of game.
+     * @param appId[AppId] AppID of game.
      * @param version[String] The installed version of the game.
      */
     suspend fun upToDateCheck(appId: AppId, version: String): UpToDateCheckWrapper =
