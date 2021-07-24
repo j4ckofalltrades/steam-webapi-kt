@@ -17,6 +17,7 @@ import kotlin.test.assertEquals
 internal class ISteamUserWrapperTest {
 
     private val steamId = "123"
+    private val json = Json { ignoreUnknownKeys = true }
 
     private lateinit var userApiClient: ISteamUserWrapper
 
@@ -56,15 +57,20 @@ internal class ISteamUserWrapperTest {
     @Test
     fun getFriendList(): Unit = runBlocking {
         assertEquals(
-            Json.decodeFromString(FRIEND_LIST_JSON),
+            json.decodeFromString(FRIEND_LIST_JSON),
             userApiClient.getFriendList(steamId = steamId, friendRelationship = FriendRelationship.FRIEND)
+        )
+
+        assertEquals(
+            json.decodeFromString(FRIEND_LIST_JSON),
+            userApiClient.getFriendList(steamId = steamId, friendRelationship = FriendRelationship.ALL)
         )
     }
 
     @Test
     fun getPlayerBans(): Unit = runBlocking {
         assertEquals(
-            Json.decodeFromString(PLAYER_BANS_JSON),
+            json.decodeFromString(PLAYER_BANS_JSON),
             userApiClient.getPlayerBans(listOf(steamId))
         )
     }
@@ -72,7 +78,7 @@ internal class ISteamUserWrapperTest {
     @Test
     fun getPlayerSummaries(): Unit = runBlocking {
         assertEquals(
-            Json.decodeFromString(PLAYER_SUMMARIES_JSON),
+            json.decodeFromString(PLAYER_SUMMARIES_JSON),
             userApiClient.getPlayerSummaries(listOf(steamId))
         )
     }
@@ -80,7 +86,7 @@ internal class ISteamUserWrapperTest {
     @Test
     fun getUserGroupList(): Unit = runBlocking {
         assertEquals(
-            Json.decodeFromString(USER_GROUP_LIST_JSON),
+            json.decodeFromString(USER_GROUP_LIST_JSON),
             userApiClient.getUserGroupList(steamId)
         )
     }
@@ -88,7 +94,7 @@ internal class ISteamUserWrapperTest {
     @Test
     fun resolveVanityURL(): Unit = runBlocking {
         assertEquals(
-            Json.decodeFromString(VANITY_URL_JSON),
+            json.decodeFromString(VANITY_URL_JSON),
             userApiClient.resolveVanityURL("https://steamcommunity.com/id/gabelogannewell")
         )
     }

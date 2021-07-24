@@ -21,7 +21,7 @@ data class FriendList(val friends: List<Friend>)
 
 /**
  * @property steamId[SteamId] The user's 64 bit ID.
- * @property relationship[FriendRelationship] Role in relation to the given steamid.
+ * @property relationship[FriendRelationship] Role in relation to the given [steamId].
  * @property friendSince[Long] A unix timestamp of when the friend was added to the list.
  *
  */

@@ -15,6 +15,8 @@ import kotlin.test.assertEquals
 
 internal class ISteamWebApiUtilWrapperTest {
 
+    private val json = Json { ignoreUnknownKeys = true }
+
     private lateinit var steamWebApiUtil: ISteamWebApiUtilWrapper
 
     @BeforeTest
@@ -44,7 +46,7 @@ internal class ISteamWebApiUtilWrapperTest {
     @Test
     fun getServerInfo(): Unit = runBlocking {
         assertEquals(
-            Json.decodeFromString(SERVER_INFO_JSON),
+            json.decodeFromString(SERVER_INFO_JSON),
             steamWebApiUtil.getServerInfo()
         )
     }
@@ -52,7 +54,7 @@ internal class ISteamWebApiUtilWrapperTest {
     @Test
     fun getSupportedApiList(): Unit = runBlocking {
         assertEquals(
-            Json.decodeFromString(SUPPORTED_API_JSON),
+            json.decodeFromString(SUPPORTED_API_JSON),
             steamWebApiUtil.getSupportedApiList()
         )
     }

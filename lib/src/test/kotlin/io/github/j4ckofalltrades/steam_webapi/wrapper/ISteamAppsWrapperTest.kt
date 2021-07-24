@@ -15,6 +15,8 @@ import kotlin.test.assertEquals
 
 internal class ISteamAppsWrapperTest {
 
+    private val json = Json { ignoreUnknownKeys = true }
+
     private lateinit var appsApiClient: ISteamAppsWrapper
 
     @BeforeTest
@@ -44,7 +46,7 @@ internal class ISteamAppsWrapperTest {
     @Test
     fun getAppList() = runBlocking {
         assertEquals(
-            Json.decodeFromString(APP_LIST_JSON),
+            json.decodeFromString(APP_LIST_JSON),
             appsApiClient.getAppList()
         )
     }
@@ -52,7 +54,7 @@ internal class ISteamAppsWrapperTest {
     @Test
     fun upToDateCheck() = runBlocking {
         assertEquals(
-            Json.decodeFromString(UP_TO_DATE_CHECK_JSON),
+            json.decodeFromString(UP_TO_DATE_CHECK_JSON),
             appsApiClient.upToDateCheck(appId = 570, version = "7.29d")
         )
     }

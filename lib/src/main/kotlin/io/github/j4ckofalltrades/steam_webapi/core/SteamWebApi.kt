@@ -2,6 +2,7 @@ package io.github.j4ckofalltrades.steam_webapi.core
 
 import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamAppsWrapper
 import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamNewsWrapper
+import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamUserStatsWrapper
 import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamUserWrapper
 import io.github.j4ckofalltrades.steam_webapi.wrapper.ISteamWebApiUtilWrapper
 
@@ -31,6 +32,10 @@ class SteamWebApi(private val webApikey: WebApiKey) {
         ISteamUserWrapper(webApikey)
     }
 
+    private val userStatsApi: ISteamUserStatsWrapper by lazy {
+        ISteamUserStatsWrapper(webApikey)
+    }
+
     fun appsApi(): ISteamAppsWrapper {
         return this.appsApi
     }
@@ -45,5 +50,9 @@ class SteamWebApi(private val webApikey: WebApiKey) {
 
     fun userApi(): ISteamUserWrapper {
         return this.userApi
+    }
+
+    fun userStatsApi(): ISteamUserStatsWrapper {
+        return this.userStatsApi
     }
 }

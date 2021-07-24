@@ -17,6 +17,8 @@ import kotlin.test.assertEquals
 
 internal class ISteamNewsWrapperTest {
 
+    private val json = Json { ignoreUnknownKeys = true }
+
     private lateinit var newsApi: ISteamNewsWrapper
 
     @BeforeTest
@@ -43,7 +45,7 @@ internal class ISteamNewsWrapperTest {
     @Test
     fun getNewsForApp() = runBlocking {
         assertEquals(
-            Json.decodeFromString(NEWS_FOR_APP_JSON),
+            json.decodeFromString(NEWS_FOR_APP_JSON),
             newsApi.getNewsForApp(appId = 570)
         )
     }
@@ -51,7 +53,7 @@ internal class ISteamNewsWrapperTest {
     @Test
     fun getNewsForAppWithParams() = runBlocking {
         assertEquals(
-            Json.decodeFromString(NEWS_FOR_APP_JSON),
+            json.decodeFromString(NEWS_FOR_APP_JSON),
             newsApi.getNewsForApp(
                 appId = 570,
                 params = NewsForAppParams(
