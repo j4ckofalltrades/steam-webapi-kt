@@ -6,9 +6,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
 @Serializable
-data class CurrentPlayerCountWrapper(
-    val response: CurrentPlayerCount,
-)
+data class CurrentPlayerCountWrapper(val response: CurrentPlayerCount)
 
 /**
  * @property playerCount[Long] Total number of currently active players for the specified app.
@@ -80,9 +78,7 @@ data class GameSchemaAchievement(
 )
 
 @Serializable
-data class GameUserStatsWrapper(
-    val playerstats: GameUserStats,
-)
+data class GameUserStatsWrapper(val playerstats: GameUserStats)
 
 /**
  * @property steamId[SteamId] SteamId of user.
@@ -109,9 +105,7 @@ data class GameUserAchievement(
 )
 
 @Serializable
-data class GlobalStatsForGameWrapper(
-    val response: GlobalStatsForGame,
-)
+data class GlobalStatsForGameWrapper(val response: GlobalStatsForGame)
 
 /**
  * @property result[Int] Result code.
@@ -134,9 +128,7 @@ data class GlobalAchievementPercentages(
 )
 
 @Serializable
-data class GlobalAchievementList(
-    val achievements: List<GlobalAchievement>,
-)
+data class GlobalAchievementList(val achievements: List<GlobalAchievement>)
 
 /**
  * @property name[String] The name of the achievement as an unlocalized token.

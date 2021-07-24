@@ -24,7 +24,7 @@ internal const val GET_USER_STATS_FOR_GAME = "/ISteamUserStats/GetUserStatsForGa
 
 /**
  * Wrapper for the [ISteamUserStats](https://partner.steamgames.com/doc/webapi/ISteamUserStats) endpoint which contains
- * methods relating to the Steam users.
+ * methods used to access information about users.
  */
 class ISteamUserStatsWrapper(
     private val webApiKey: WebApiKey,
