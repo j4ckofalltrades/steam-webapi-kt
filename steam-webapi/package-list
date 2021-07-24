@@ -5,6 +5,7 @@ $dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi///Pointi
 $dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi/SteamWebApi/#kotlin.String/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.core/-steam-web-api/-steam-web-api.html
 $dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi/appsApi/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.core/-steam-web-api/apps-api.html
 $dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi/newsApi/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.core/-steam-web-api/news-api.html
+$dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi/playerService/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.core/-steam-web-api/player-service.html
 $dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi/steamWebApiUtil/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.core/-steam-web-api/steam-web-api-util.html
 $dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi/userApi/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.core/-steam-web-api/user-api.html
 $dokka.location:io.github.j4ckofalltrades.steam_webapi.core/SteamWebApi/userStatsApi/#/PointingToDeclaration/steam-webapi/io.github.j4ckofalltrades.steam_webapi.core/-steam-web-api/user-stats-api.html
