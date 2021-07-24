@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "io.github.j4ckofalltrades"
-version = "0.3.1"
+version = "1.0.0"
 
 var kotlinVersion = "1.5.20"
 var ktorVersion = "1.6.1"
