@@ -101,9 +101,7 @@ data class PlayerBadgeProgress(val response: QuestList)
  * @property quests[List] Array of quests (actions required to unlock a badge).
  */
 @Serializable
-data class QuestList(
-    val quests: List<Quest>,
-)
+data class QuestList(val quests: List<Quest>)
 
 /**
  * @property questId[Long] Quest ID.

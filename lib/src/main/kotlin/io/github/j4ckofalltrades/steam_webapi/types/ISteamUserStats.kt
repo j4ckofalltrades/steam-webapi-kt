@@ -78,7 +78,7 @@ data class GameSchemaAchievement(
 )
 
 @Serializable
-data class GameUserStatsWrapper(val playerstats: GameUserStats)
+data class GameUserStatsWrapper(@SerialName("playerstats") val playerStats: GameUserStats)
 
 /**
  * @property steamId[SteamId] SteamId of user.

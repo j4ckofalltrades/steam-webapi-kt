@@ -2,8 +2,8 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
 plugins {
-    kotlin("jvm") version "1.5.20"
-    kotlin("plugin.serialization") version "1.5.20"
+    kotlin("jvm") version "1.5.30"
+    kotlin("plugin.serialization") version "1.5.30"
     id("org.jlleitschuh.gradle.ktlint") version "10.1.0"
     id("org.jetbrains.dokka") version "1.5.0"
     `java-library`
@@ -15,8 +15,8 @@ plugins {
 group = "io.github.j4ckofalltrades"
 version = "1.0.0"
 
-var kotlinVersion = "1.5.20"
-var ktorVersion = "1.6.1"
+var kotlinVersion = "1.5.30"
+var ktorVersion = "1.6.2"
 
 repositories {
     mavenCentral()
@@ -40,8 +40,11 @@ tasks.register("installGitHook", Copy::class) {
     into("../.git/hooks")
 }
 
-tasks.compileKotlin {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     dependsOn("installGitHook")
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
 
 tasks.jar {

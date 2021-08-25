@@ -25,6 +25,7 @@ internal const val RESOLVE_VANITY_URL = "/ISteamUser/ResolveVanityURL/v1"
  * Wrapper for the [ISteamUser](https://partner.steamgames.com/doc/webapi/ISteamUser) endpoint which contains methods
  * relating to the Steam users.
  */
+@kotlinx.serialization.ExperimentalSerializationApi
 class ISteamUserWrapper(
     val webApiKey: WebApiKey,
     val webApiClient: HttpClient = WebApiClient.default(),

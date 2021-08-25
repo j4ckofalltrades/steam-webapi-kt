@@ -14,6 +14,7 @@ internal const val GET_NEWS_FOR_APP = "/ISteamNews/GetNewsForApp/v2"
  * Wrapper for the [ISteamNews](https://partner.steamgames.com/doc/webapi/ISteamNews) endpoint which contains methods
  * relating to the Steam news.
  */
+@kotlinx.serialization.ExperimentalSerializationApi
 class ISteamNewsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
 
     /**

@@ -15,6 +15,7 @@ typealias SteamId = String
  * Wrapper around the [Steam WebAPI](https://partner.steamgames.com/doc/webapi) endpoints, and is accessed via the
  * provided [webApikey].
  */
+@kotlinx.serialization.ExperimentalSerializationApi
 class SteamWebApi(private val webApikey: WebApiKey) {
 
     private val appsApi: ISteamAppsWrapper by lazy {

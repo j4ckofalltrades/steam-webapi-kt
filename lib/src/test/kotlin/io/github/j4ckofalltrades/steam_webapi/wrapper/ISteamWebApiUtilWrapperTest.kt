@@ -43,6 +43,7 @@ internal class ISteamWebApiUtilWrapperTest {
         steamWebApiUtil = ISteamWebApiUtilWrapper(webApiClient = webApiClientMock)
     }
 
+    @kotlinx.serialization.ExperimentalSerializationApi
     @Test
     fun getServerInfo(): Unit = runBlocking {
         assertEquals(
@@ -51,6 +52,7 @@ internal class ISteamWebApiUtilWrapperTest {
         )
     }
 
+    @kotlinx.serialization.ExperimentalSerializationApi
     @Test
     fun getSupportedApiList(): Unit = runBlocking {
         assertEquals(
