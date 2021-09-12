@@ -2,8 +2,8 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.j4ckofalltrades/steam-webapi-kt.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.j4ckofalltrades/steam-webapi-kt)
 [![JitPack](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.5.20-blueviolet)](https://kotlinlang.org)
-[![Ktor](https://img.shields.io/badge/ktor-1.6.1-blue)](https://ktor.io)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.5.30-blueviolet)](https://kotlinlang.org)
+[![Ktor](https://img.shields.io/badge/ktor-1.6.3-blue)](https://ktor.io)
 
 [![KDoc](https://img.shields.io/badge/kdoc-1.0.0-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
 [![javadoc](https://javadoc.io/badge2/io.github.j4ckofalltrades/steam-webapi-kt/javadoc.svg)](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt)

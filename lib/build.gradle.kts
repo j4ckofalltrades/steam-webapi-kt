@@ -16,7 +16,7 @@ group = "io.github.j4ckofalltrades"
 version = "1.0.0"
 
 var kotlinVersion = "1.5.30"
-var ktorVersion = "1.6.2"
+var ktorVersion = "1.6.3"
 
 repositories {
     mavenCentral()
