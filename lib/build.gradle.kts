@@ -2,8 +2,8 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
 plugins {
-    kotlin("jvm") version "1.5.30"
-    kotlin("plugin.serialization") version "1.5.30"
+    kotlin("jvm") version "1.6.0"
+    kotlin("plugin.serialization") version "1.6.0"
     id("org.jlleitschuh.gradle.ktlint") version "10.1.0"
     id("org.jetbrains.dokka") version "1.5.0"
     `java-library`
@@ -13,10 +13,10 @@ plugins {
 }
 
 group = "io.github.j4ckofalltrades"
-version = "1.0.0"
+version = "1.0.1"
 
-var kotlinVersion = "1.5.30"
-var ktorVersion = "1.6.3"
+var kotlinVersion = "1.6.0"
+var ktorVersion = "1.6.5"
 
 repositories {
     mavenCentral()
@@ -34,6 +34,31 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
 }
 
+// code coverage
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
+    }
+    classDirectories.setFrom(
+        sourceSets.main.get().output.asFileTree.matching {
+            exclude("**/types/*", "**/core/*")
+        }
+    )
+}
+
+// git hooks
 tasks.register("installGitHook", Copy::class) {
     from("../hooks/pre-commit")
     from("../hooks/pre-push")
@@ -47,6 +72,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     }
 }
 
+// packaging
 tasks.jar {
     manifest {
         attributes(
@@ -57,28 +83,6 @@ tasks.jar {
         )
     }
     archiveBaseName.set("steam-webapi-kt")
-}
-
-tasks.withType<DokkaTask>().configureEach {
-    dokkaSourceSets {
-        named("main") {
-            outputDirectory.set(file("docs"))
-            moduleName.set("steam-webapi")
-            includes.from("Module.md")
-            displayName.set("JVM")
-            platform.set(org.jetbrains.dokka.Platform.jvm)
-            sourceLink {
-                localDirectory.set(file("src/main/kotlin"))
-                remoteUrl.set(
-                    URL(
-                        "https://github.com/j4ckofalltrades/steam-webapi-kt" +
-                            "/tree/main/lib/src/main/kotlin"
-                    )
-                )
-                remoteLineSuffix.set("#L")
-            }
-        }
-    }
 }
 
 tasks {
@@ -100,6 +104,29 @@ tasks {
         archives(sourcesJar)
         archives(javadocJar)
         archives(jar)
+    }
+}
+
+// docs
+tasks.withType<DokkaTask>().configureEach {
+    dokkaSourceSets {
+        named("main") {
+            outputDirectory.set(file("docs"))
+            moduleName.set("steam-webapi")
+            includes.from("Module.md")
+            displayName.set("JVM")
+            platform.set(org.jetbrains.dokka.Platform.jvm)
+            sourceLink {
+                localDirectory.set(file("src/main/kotlin"))
+                remoteUrl.set(
+                    URL(
+                        "https://github.com/j4ckofalltrades/steam-webapi-kt" +
+                            "/tree/main/lib/src/main/kotlin"
+                    )
+                )
+                remoteLineSuffix.set("#L")
+            }
+        }
     }
 }
 
@@ -168,30 +195,4 @@ signing {
     val signingPassword = System.getenv("SIGNING_PASSWORD")
     useInMemoryPgpKeys(signingKey, signingPassword)
     sign(publishing.publications["mavenJava"])
-}
-
-jacoco {
-    toolVersion = "0.8.7"
-}
-
-tasks.jacocoTestReport {
-    reports {
-        xml.required.set(true)
-        csv.required.set(false)
-        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
-    }
-    classDirectories.setFrom(
-        sourceSets.main.get().output.asFileTree.matching {
-            exclude("**/types/*", "**/core/*")
-        }
-    )
-}
-
-tasks.test {
-    useJUnitPlatform()
-    finalizedBy(tasks.jacocoTestReport)
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
 }

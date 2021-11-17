@@ -2,7 +2,7 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.j4ckofalltrades/steam-webapi-kt.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.j4ckofalltrades/steam-webapi-kt)
 [![JitPack](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.5.30-blueviolet)](https://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.6.0-blueviolet)](https://kotlinlang.org)
 [![Ktor](https://img.shields.io/badge/ktor-1.6.3-blue)](https://ktor.io)
 
 [![KDoc](https://img.shields.io/badge/kdoc-1.0.0-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
@@ -104,3 +104,7 @@ For more detailed documentation see:
 - [KDoc](https://j4ckofalltrades.github.io/steam-webapi-kt)
 
 - [Javadoc](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt/latest)
+
+## Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/0de183cc9f2d5d764a1ba379aae44cbd811bee73.svg "Repobeats analytics image")
