@@ -1,4 +1,4 @@
-# Module steam-webapi
+# Module steam_webapi
 
 Steam WebAPI wrapper in Kotlin and Ktor.
 

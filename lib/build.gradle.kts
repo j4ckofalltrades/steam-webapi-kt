@@ -5,7 +5,7 @@ plugins {
     kotlin("jvm") version "1.6.0"
     kotlin("plugin.serialization") version "1.6.0"
     id("org.jlleitschuh.gradle.ktlint") version "10.1.0"
-    id("org.jetbrains.dokka") version "1.5.0"
+    id("org.jetbrains.dokka") version "1.6.0"
     `java-library`
     `maven-publish`
     signing
@@ -68,7 +68,7 @@ tasks.register("installGitHook", Copy::class) {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     dependsOn("installGitHook")
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 }
 
@@ -112,7 +112,7 @@ tasks.withType<DokkaTask>().configureEach {
     dokkaSourceSets {
         named("main") {
             outputDirectory.set(file("docs"))
-            moduleName.set("steam-webapi")
+            moduleName.set("steam_webapi")
             includes.from("Module.md")
             displayName.set("JVM")
             platform.set(org.jetbrains.dokka.Platform.jvm)
