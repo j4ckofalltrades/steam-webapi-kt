@@ -2,10 +2,10 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.j4ckofalltrades/steam-webapi-kt.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.j4ckofalltrades/steam-webapi-kt)
 [![JitPack](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.6.0-blueviolet)](https://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.6.10-blueviolet)](https://kotlinlang.org)
 [![Ktor](https://img.shields.io/badge/ktor-1.6.5-blue)](https://ktor.io)
 
-[![KDoc](https://img.shields.io/badge/kdoc-1.0.1-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
+[![KDoc](https://img.shields.io/badge/kdoc-1.0.2-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
 [![javadoc](https://javadoc.io/badge2/io.github.j4ckofalltrades/steam-webapi-kt/javadoc.svg)](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt)
 [![codecov](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt/branch/main/graph/badge.svg?token=2IDBVWIE7T)](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt)
 
@@ -17,7 +17,7 @@ Steam WebAPI wrapper in Kotlin and Ktor.
 
 ```kotlin
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.0.1")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.0.2")
 }
 ```
 
@@ -25,7 +25,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "com.github.j4ckofalltrades:steam-webapi-kt:1.0.1"
+    implementation "com.github.j4ckofalltrades:steam-webapi-kt:1.0.2"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 <dependency>
     <groupId>com.github.j4ckofalltrades</groupId>
     <artifactId>steam-webapi-kt</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.0.1")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.0.2")
 }
 ```
 
@@ -63,7 +63,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.0.1")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.0.2")
 }
 ```
 
