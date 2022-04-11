@@ -4,6 +4,7 @@ import io.github.j4ckofalltrades.steam_webapi.core.WebApiClient
 import io.github.j4ckofalltrades.steam_webapi.types.ServerInfo
 import io.github.j4ckofalltrades.steam_webapi.types.SupportedAPI
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.request.get
 
 internal const val GET_SERVER_INFO = "/ISteamWebAPIUtil/GetServerInfo/v1"
@@ -18,10 +19,10 @@ class ISteamWebApiUtilWrapper(val webApiClient: HttpClient = WebApiClient.defaul
     /**
      * Returns WebAPI server time & checks server status.
      */
-    suspend fun getServerInfo(): ServerInfo = webApiClient.get(path = GET_SERVER_INFO)
+    suspend fun getServerInfo(): ServerInfo = webApiClient.get(GET_SERVER_INFO).body()
 
     /**
      * Gets the list of supported API calls.
      */
-    suspend fun getSupportedApiList(): SupportedAPI = webApiClient.get(path = GET_SUPPORTED_API_LIST)
+    suspend fun getSupportedApiList(): SupportedAPI = webApiClient.get(GET_SUPPORTED_API_LIST).body()
 }

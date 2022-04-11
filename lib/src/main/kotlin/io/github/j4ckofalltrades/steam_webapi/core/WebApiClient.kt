@@ -3,12 +3,13 @@ package io.github.j4ckofalltrades.steam_webapi.core
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.cio.CIO
-import io.ktor.client.features.defaultRequest
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.URLBuilder
 import io.ktor.http.Url
+import io.ktor.http.encodedPath
 import io.ktor.http.takeFrom
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 /**
@@ -30,8 +31,8 @@ object WebApiClient {
     }
 
     fun HttpClientConfig<*>.defaultConfig() {
-        install(JsonFeature) {
-            serializer = KotlinxSerializer(
+        install(ContentNegotiation) {
+            json(
                 Json {
                     prettyPrint = true
                     isLenient = true

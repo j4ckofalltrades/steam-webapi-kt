@@ -5,6 +5,7 @@ import io.github.j4ckofalltrades.steam_webapi.core.WebApiClient
 import io.github.j4ckofalltrades.steam_webapi.types.AppListWrapper
 import io.github.j4ckofalltrades.steam_webapi.types.UpToDateCheckWrapper
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 
@@ -20,7 +21,7 @@ class ISteamAppsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
     /**
      * Full list of every publicly facing program in the store/library.
      */
-    suspend fun getAppList(): AppListWrapper = webApiClient.get(path = GET_APP_LIST)
+    suspend fun getAppList(): AppListWrapper = webApiClient.get(GET_APP_LIST).body()
 
     /**
      * Check if a given app version is the most current available.
@@ -29,8 +30,9 @@ class ISteamAppsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
      * @param version[String] The installed version of the game.
      */
     suspend fun upToDateCheck(appId: AppId, version: String): UpToDateCheckWrapper =
-        webApiClient.get(path = UP_TO_DATE_CHECK) {
+        webApiClient.get(UP_TO_DATE_CHECK) {
             parameter("appid", appId)
             parameter("version", version)
         }
+            .body()
 }

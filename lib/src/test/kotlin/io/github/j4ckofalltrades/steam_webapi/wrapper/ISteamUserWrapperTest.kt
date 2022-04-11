@@ -14,7 +14,6 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-@kotlinx.serialization.ExperimentalSerializationApi
 internal class ISteamUserWrapperTest {
 
     private val steamId = "123"

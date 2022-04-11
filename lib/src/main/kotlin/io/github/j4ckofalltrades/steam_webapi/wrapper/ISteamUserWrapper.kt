@@ -10,6 +10,7 @@ import io.github.j4ckofalltrades.steam_webapi.types.PlayerSummaryListWrapper
 import io.github.j4ckofalltrades.steam_webapi.types.UserGroupListWrapper
 import io.github.j4ckofalltrades.steam_webapi.types.VanityURLResponseWrapper
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import kotlinx.serialization.encodeToString
@@ -25,7 +26,6 @@ internal const val RESOLVE_VANITY_URL = "/ISteamUser/ResolveVanityURL/v1"
  * Wrapper for the [ISteamUser](https://partner.steamgames.com/doc/webapi/ISteamUser) endpoint which contains methods
  * relating to the Steam users.
  */
-@kotlinx.serialization.ExperimentalSerializationApi
 class ISteamUserWrapper(
     val webApiKey: WebApiKey,
     val webApiClient: HttpClient = WebApiClient.default(),
@@ -39,11 +39,12 @@ class ISteamUserWrapper(
      *        *friend*.
      * */
     suspend fun getFriendList(steamId: SteamId, friendRelationship: FriendRelationship): FriendListWrapper =
-        webApiClient.get(path = GET_FRIEND_LIST) {
+        webApiClient.get(GET_FRIEND_LIST) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)
             parameter("relationship", friendRelationship.value)
         }
+            .body()
 
     /**
      * Player ban/probation status.
@@ -51,10 +52,11 @@ class ISteamUserWrapper(
      * @param steamIds[List] Comma-delimited list of steam IDs.
      */
     suspend fun getPlayerBans(steamIds: List<SteamId>): PlayerBanList =
-        webApiClient.get(path = GET_PLAYER_BANS) {
+        webApiClient.get(GET_PLAYER_BANS) {
             parameter("key", webApiKey)
             parameter("steamids", Json.encodeToString(steamIds))
         }
+            .body()
 
     /**
      * User profile data.
@@ -62,10 +64,11 @@ class ISteamUserWrapper(
      * @param steamIds[List] Comma-delimited list of steam IDs.
      */
     suspend fun getPlayerSummaries(steamIds: List<SteamId>): PlayerSummaryListWrapper =
-        webApiClient.get(path = GET_PLAYER_SUMMARIES) {
+        webApiClient.get(GET_PLAYER_SUMMARIES) {
             parameter("key", webApiKey)
             parameter("steamids", Json.encodeToString(steamIds))
         }
+            .body()
 
     /**
      * Lists Group ID(s) linked with 64 bit ID.
@@ -73,10 +76,11 @@ class ISteamUserWrapper(
      * @param steamId[SteamId] The 64 bit ID of the user.
      */
     suspend fun getUserGroupList(steamId: SteamId): UserGroupListWrapper =
-        webApiClient.get(path = GET_USER_GROUP_LIST) {
+        webApiClient.get(GET_USER_GROUP_LIST) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)
         }
+            .body()
 
     /**
      * Resolve vanity URL parts to a 64 bit ID.
@@ -85,8 +89,9 @@ class ISteamUserWrapper(
      *        e.g. http://steamcommunity.com/id/gabelogannewell would use "gabelogannewell".
      */
     suspend fun resolveVanityURL(vanityUrl: String): VanityURLResponseWrapper =
-        webApiClient.get(path = RESOLVE_VANITY_URL) {
+        webApiClient.get(RESOLVE_VANITY_URL) {
             parameter("key", webApiKey)
             parameter("vanityurl", vanityUrl)
         }
+            .body()
 }

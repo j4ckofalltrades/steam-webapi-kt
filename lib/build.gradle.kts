@@ -2,8 +2,8 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
 plugins {
-    kotlin("jvm") version "1.6.10"
-    kotlin("plugin.serialization") version "1.6.10"
+    kotlin("jvm") version "1.6.20"
+    kotlin("plugin.serialization") version "1.6.20"
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
     id("org.jetbrains.dokka") version "1.6.10"
     `java-library`
@@ -13,10 +13,10 @@ plugins {
 }
 
 group = "io.github.j4ckofalltrades"
-version = "1.0.2"
+version = "1.1.0"
 
-var kotlinVersion = "1.6.10"
-var ktorVersion = "1.6.5"
+var kotlinVersion = "1.6.20"
+var ktorVersion = "2.0.0"
 
 repositories {
     mavenCentral()
@@ -27,7 +27,8 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
-    implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
 
     // testing
     testImplementation("io.ktor:ktor-client-mock:$ktorVersion")
