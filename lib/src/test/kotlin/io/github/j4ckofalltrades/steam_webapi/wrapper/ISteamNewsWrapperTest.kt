@@ -33,6 +33,7 @@ internal class ISteamNewsWrapperTest {
                         GET_NEWS_FOR_APP -> {
                             respond(NEWS_FOR_APP_JSON, headers = responseHeaders)
                         }
+
                         else -> error("Unhandled ${it.url.encodedPath}")
                     }
                 }

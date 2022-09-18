@@ -33,21 +33,27 @@ internal class IPlayerServiceWrapperTest {
                         GET_RECENTLY_PLAYED_GAMES -> {
                             respond(RECENTLY_PLAYED_GAMES_JSON, headers = responseHeaders)
                         }
+
                         GET_OWNED_GAMES -> {
                             respond(OWNED_GAMES_JSON, headers = responseHeaders)
                         }
+
                         GET_STEAM_LEVEL -> {
                             respond(PLAYER_LEVEL_JSON, headers = responseHeaders)
                         }
+
                         GET_BADGES -> {
                             respond(PLAYER_BADGES_JSON, headers = responseHeaders)
                         }
+
                         GET_COMMUNITY_BADGE_PROGRESS -> {
                             respond(PLAYER_BADGE_PROGRESS_JSON, headers = responseHeaders)
                         }
+
                         IS_PLAYING_SHARED_GAME -> {
                             respond(PLAYING_SHARED_GAME_JSON, headers = responseHeaders)
                         }
+
                         else -> error("Unhandled ${it.url.encodedPath}")
                     }
                 }

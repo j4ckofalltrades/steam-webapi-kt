@@ -5,7 +5,7 @@
 [![Kotlin](https://img.shields.io/badge/kotlin-1.7.0-blueviolet)](https://kotlinlang.org)
 [![Ktor](https://img.shields.io/badge/ktor-2.0.2-blue)](https://ktor.io)
 
-[![KDoc](https://img.shields.io/badge/kdoc-1.2.0-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
+[![KDoc](https://img.shields.io/badge/kdoc-1.2.1-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
 [![javadoc](https://javadoc.io/badge2/io.github.j4ckofalltrades/steam-webapi-kt/javadoc.svg)](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt)
 [![codecov](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt/branch/main/graph/badge.svg?token=2IDBVWIE7T)](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt)
 
@@ -17,7 +17,7 @@ Steam WebAPI wrapper in Kotlin and Ktor.
 
 ```kotlin
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.2.0")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.2.1")
 }
 ```
 
@@ -25,7 +25,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "com.github.j4ckofalltrades:steam-webapi-kt:1.2.0"
+    implementation "com.github.j4ckofalltrades:steam-webapi-kt:1.2.1"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 <dependency>
     <groupId>com.github.j4ckofalltrades</groupId>
     <artifactId>steam-webapi-kt</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.2.0")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.2.1")
 }
 ```
 
@@ -63,7 +63,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.2.0")
+    implementation("com.github.j4ckofalltrades:steam-webapi-kt:1.2.1")
 }
 ```
 

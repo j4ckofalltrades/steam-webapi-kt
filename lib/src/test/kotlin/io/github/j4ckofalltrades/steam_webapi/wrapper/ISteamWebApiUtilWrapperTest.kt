@@ -31,9 +31,11 @@ internal class ISteamWebApiUtilWrapperTest {
                         GET_SERVER_INFO -> {
                             respond(SERVER_INFO_JSON, headers = responseHeaders)
                         }
+
                         GET_SUPPORTED_API_LIST -> {
                             respond(SUPPORTED_API_JSON, headers = responseHeaders)
                         }
+
                         else -> error("Unhandled ${it.url.encodedPath}")
                     }
                 }

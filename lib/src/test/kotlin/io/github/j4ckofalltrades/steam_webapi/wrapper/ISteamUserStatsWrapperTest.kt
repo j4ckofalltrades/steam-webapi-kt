@@ -34,21 +34,27 @@ internal class ISteamUserStatsWrapperTest {
                         GET_GLOBAL_ACHIEVEMENT_PERCENTAGES_FOR_APP -> {
                             respond(GLOBAL_ACHIEVEMENTS_JSON, headers = responseHeaders)
                         }
+
                         GET_GLOBAL_STATS_FOR_GAME -> {
                             respond(GLOBAL_STATS_FOR_GAME_JSON, headers = responseHeaders)
                         }
+
                         GET_NUMBER_OF_CURRENT_PLAYERS -> {
                             respond(CURRENT_PLAYERS_JSON, headers = responseHeaders)
                         }
+
                         GET_PLAYER_ACHIEVEMENTS -> {
                             respond(PLAYER_ACHIEVEMENTS_JSON, headers = responseHeaders)
                         }
+
                         GET_SCHEMA_FOR_GAME -> {
                             respond(GAME_SCHEMA_JSON, headers = responseHeaders)
                         }
+
                         GET_USER_STATS_FOR_GAME -> {
                             respond(GAME_USER_STATS_JSON, headers = responseHeaders)
                         }
+
                         else -> error("Unhandled ${it.url.encodedPath}")
                     }
                 }

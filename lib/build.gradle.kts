@@ -5,7 +5,7 @@ plugins {
     kotlin("jvm") version "1.7.0"
     kotlin("plugin.serialization") version "1.7.0"
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
-    id("org.jetbrains.dokka") version "1.6.21"
+    id("org.jetbrains.dokka") version "1.7.10"
     `java-library`
     `maven-publish`
     signing
@@ -13,10 +13,10 @@ plugins {
 }
 
 group = "io.github.j4ckofalltrades"
-version = "1.2.0"
+version = "1.2.1"
 
 var kotlinVersion = "1.7.0"
-var ktorVersion = "2.0.2"
+var ktorVersion = "2.1.1"
 
 repositories {
     mavenCentral()

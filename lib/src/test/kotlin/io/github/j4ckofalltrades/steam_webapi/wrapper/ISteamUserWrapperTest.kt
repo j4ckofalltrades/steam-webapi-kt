@@ -33,18 +33,23 @@ internal class ISteamUserWrapperTest {
                         GET_FRIEND_LIST -> {
                             respond(FRIEND_LIST_JSON, headers = responseHeaders)
                         }
+
                         GET_PLAYER_BANS -> {
                             respond(PLAYER_BANS_JSON, headers = responseHeaders)
                         }
+
                         GET_PLAYER_SUMMARIES -> {
                             respond(PLAYER_SUMMARIES_JSON, headers = responseHeaders)
                         }
+
                         GET_USER_GROUP_LIST -> {
                             respond(USER_GROUP_LIST_JSON, headers = responseHeaders)
                         }
+
                         RESOLVE_VANITY_URL -> {
                             respond(VANITY_URL_JSON, headers = responseHeaders)
                         }
+
                         else -> error("Unhandled ${it.url.encodedPath}")
                     }
                 }

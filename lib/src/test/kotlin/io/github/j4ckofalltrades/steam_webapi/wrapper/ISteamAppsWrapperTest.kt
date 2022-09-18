@@ -31,9 +31,11 @@ internal class ISteamAppsWrapperTest {
                         GET_APP_LIST -> {
                             respond(APP_LIST_JSON, headers = responseHeaders)
                         }
+
                         UP_TO_DATE_CHECK -> {
                             respond(UP_TO_DATE_CHECK_JSON, headers = responseHeaders)
                         }
+
                         else -> error("Unhandled ${it.url.encodedPath}")
                     }
                 }
