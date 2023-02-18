@@ -1,3 +1,4 @@
+import kotlinx.kover.api.DefaultIntellijEngine
 import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
@@ -6,10 +7,10 @@ plugins {
     kotlin("plugin.serialization") version "1.7.0"
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
     id("org.jetbrains.dokka") version "1.7.10"
+    id("org.jetbrains.kotlinx.kover") version "0.6.1"
     `java-library`
     `maven-publish`
     signing
-    jacoco
 }
 
 group = "io.github.j4ckofalltrades"
@@ -35,28 +36,25 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlinVersion")
 }
 
-// code coverage
-jacoco {
-    toolVersion = "0.8.7"
-}
-
 tasks.test {
     useJUnitPlatform()
-    finalizedBy(tasks.jacocoTestReport)
 }
 
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    reports {
-        xml.required.set(true)
-        csv.required.set(false)
-        html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
-    }
-    classDirectories.setFrom(
-        sourceSets.main.get().output.asFileTree.matching {
-            exclude("**/types/*", "**/core/*")
+kover {
+    engine.set(DefaultIntellijEngine)
+    filters {
+        classes {
+            excludes += listOf("*.types.*", "*.core.*")
         }
-    )
+    }
+    xmlReport {
+        onCheck.set(true)
+        reportFile.set(layout.buildDirectory.file("kover/coverage/xml/result.xml"))
+    }
+    htmlReport {
+        onCheck.set(true)
+        reportDir.set(layout.buildDirectory.dir("kover/coverage/html"))
+    }
 }
 
 // git hooks
