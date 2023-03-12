@@ -24,8 +24,8 @@ internal const val GET_COMMUNITY_BADGE_PROGRESS = "/IPlayerService/GetCommunityB
 internal const val IS_PLAYING_SHARED_GAME = "/IPlayerService/IsPlayingSharedGame/v1"
 
 /**
- * Wrapper for the [IPlayerService](https://partner.steamgames.com/doc/webapi/IPlayerService) endpoint which additional
- * methods for interacting with Steam users.
+ * Wrapper for the [IPlayerService](https://partner.steamgames.com/doc/webapi/IPlayerService) endpoint which contains
+ * additional methods for interacting with Steam users.
  */
 class IPlayerServiceWrapper(
     private val webApiKey: WebApiKey,

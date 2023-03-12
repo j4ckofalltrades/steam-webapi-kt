@@ -95,7 +95,7 @@ data class GameUserStats(
 
 /**
  * @property name[String] String containing the ID of the achievement.
- * @property achieved[Int] Integer to be used as a boolean value indicating whether or not the achievement has been unlocked
+ * @property achieved[Int] Integer to be used as a boolean value indicating whether the achievement has been unlocked
  *           by the user.
  */
 @Serializable
@@ -146,7 +146,7 @@ data class PlayerStatsWrapper(
 )
 
 /**
- * @property steamId[SteamId] The 64 bit ID of the user.
+ * @property steamId[SteamId] The 64-bit ID of the user.
  * @property gameName[String] String containing the game title.
  * @property achievements[List] List of achievements unlocked by the user.
  */
@@ -161,7 +161,7 @@ data class PlayerStats(
 
 /**
  * @property apiName[String] String containing the ID of the achievement.
- * @property achieved[Int] Integer to be used as a boolean value indicating whether or not the achievement has been
+ * @property achieved[Int] Integer to be used as a boolean value indicating whether the achievement has been
  *           unlocked by the user. 1 means the achievement has been unlocked, 0 if otherwise.
  * @property unlockTime[Long] A Unix timestamp of the date when the achievement was unlocked.
  */

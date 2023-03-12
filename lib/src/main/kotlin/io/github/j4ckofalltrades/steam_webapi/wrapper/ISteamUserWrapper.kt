@@ -34,7 +34,7 @@ class ISteamUserWrapper(
     /**
      * User friend list.
      *
-     * @param steamId[SteamId] The 64 bit ID of the user to retrieve a list for.
+     * @param steamId[SteamId] The 64-bit ID of the user to retrieve a list for.
      * @param friendRelationship[FriendRelationship] Filter by a given role. Possible options are *all* (All roles),
      *        *friend*.
      * */
@@ -71,9 +71,9 @@ class ISteamUserWrapper(
             .body()
 
     /**
-     * Lists Group ID(s) linked with 64 bit ID.
+     * Lists Group ID(s) linked with 64-bit ID.
      *
-     * @param steamId[SteamId] The 64 bit ID of the user.
+     * @param steamId[SteamId] The 64-bit ID of the user.
      */
     suspend fun getUserGroupList(steamId: SteamId): UserGroupListWrapper =
         webApiClient.get(GET_USER_GROUP_LIST) {
@@ -83,7 +83,7 @@ class ISteamUserWrapper(
             .body()
 
     /**
-     * Resolve vanity URL parts to a 64 bit ID.
+     * Resolve vanity URL parts to a 64-bit ID.
      *
      * @param vanityUrl[String] The user's vanity URL that you would like to retrieve a steam ID for,
      *        e.g. http://steamcommunity.com/id/gabelogannewell would use "gabelogannewell".

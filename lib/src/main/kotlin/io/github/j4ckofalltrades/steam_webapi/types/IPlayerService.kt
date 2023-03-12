@@ -6,9 +6,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * @property includeAppInfo[Boolean] (Optional) Whether or not to include additional details of apps - name and images.
+ * @property includeAppInfo[Boolean] (Optional) Whether to include additional details of apps - name and images.
  *           Defaults to false.
- * @property includePlayedFreeGames[Boolean] (Optional) Whether or not to list free-to-play games in the results.
+ * @property includePlayedFreeGames[Boolean] (Optional) Whether to list free-to-play games in the results.
  *           Defaults to false.
  * @property appIdsFilter[List] (Optional) Restricts results to the appids passed here. This is an array and should be
  *           passed like "appids_filter[0]=440&appids_filter[1]=570".

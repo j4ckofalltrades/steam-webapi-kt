@@ -20,7 +20,7 @@ data class FriendListWrapper(@SerialName("friendslist") val friendsList: FriendL
 data class FriendList(val friends: List<Friend>)
 
 /**
- * @property steamId[SteamId] The user's 64 bit ID.
+ * @property steamId[SteamId] The user's 64-bit ID.
  * @property relationship[FriendRelationship] Role in relation to the given [steamId].
  * @property friendSince[Long] A unix timestamp of when the friend was added to the list.
  *
@@ -39,8 +39,8 @@ data class PlayerBanList(val players: List<PlayerBan>)
 
 /**
  * @property steamId[SteamId] A string containing the player's 64 bit ID.
- * @property isCommunityBanned[Boolean] Indicates whether or not the player is banned from Community.
- * @property isVACBanned[Boolean] Indicates whether or not the player has VAC bans on record.
+ * @property isCommunityBanned[Boolean] Indicates whether the player is banned from Community.
+ * @property isVACBanned[Boolean] Indicates whether the player has VAC bans on record.
  * @property numberOfGameBans[Int] Number of bans in games.
  * @property numberOfVACBans[Int] Number of VAC bans.
  * @property daysSinceLastBan[Int] Days since last ban.
@@ -72,7 +72,7 @@ data class PlayerSummaryListWrapper(val response: PlayerSummaryList)
 data class PlayerSummaryList(val players: List<PlayerSummary>)
 
 /**
- * @property steamId[SteamId] The user's 64 bit ID.
+ * @property steamId[SteamId] The user's 64-bit ID.
  * @property communityVisibilityState[Int] An integer that describes the access setting of the profile.
  *           1 - Private, 2 - Friends only, 3 - Friends of Friends, 4 - Users Only, 5 Public.
  * @property profileState[Int] If set to 1 the user has configured the profile.
@@ -86,12 +86,12 @@ data class PlayerSummaryList(val players: List<PlayerSummary>)
  *           0 - Offline, 1 - Online, 2 - Busy, 3 - Away, 4 - Snooze, 5 - looking to trade, 6 - looking to play.
  * @property commentPermission[String] (Optional) If present the profile allows public comments.
  * @property realName[String] (Optional) The user's real name.
- * @property primaryClanId[String] (Optional) The 64 bit ID of the user's primary group.
+ * @property primaryClanId[String] (Optional) The 64-bit ID of the user's primary group.
  * @property timeCreated[Long] (Optional) A unix timestamp of the date the profile was created.
  * @property locCountryCode[String] (Optional) ISO 3166 code of where the user is located.
  * @property locStateCode[String] (Optional) Variable length code representing the state the user is located in.
  * @property locCityId[Int] (Optional) An integer ID internal to Steam representing the user's city.
- * @property gameId[Long] (Optional) If the user is in game this will be set to it's app ID as a string.
+ * @property gameId[Long] (Optional) If the user is in game this will be set to its app ID as a string.
  * @property gameExtraInfo[String] (Optional) The title of the game.
  * @property gameServerIp[String] (Optional) The server URL given as an IP address and port number separated by a colon,
  *           this will not be present or set to "0.0.0.0:0" if none is available.
@@ -165,7 +165,7 @@ data class VanityURLResponseWrapper(val response: VanityURLResponse)
 
 /**
  * @property success[Int] The status of the request. 1 if successful, 42 if there was no match.
- * @property steamId[SteamId] (Optional) The 64 bit Steam ID the vanity URL resolves to. Not returned on resolution
+ * @property steamId[SteamId] (Optional) The 64-bit Steam ID the vanity URL resolves to. Not returned on resolution
  *           failures.
  * @property message[String] (Optional) The message associated with the request status. Currently only used on
  *           resolution failures.
