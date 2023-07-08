@@ -22,7 +22,7 @@ internal class IPlayerServiceWrapperTest {
     private lateinit var playerServiceClient: IPlayerServiceWrapper
 
     @BeforeTest
-    private fun setup() {
+    fun setup() {
         val webApiClientMock = HttpClient(MockEngine) {
             defaultConfig()
             engine {

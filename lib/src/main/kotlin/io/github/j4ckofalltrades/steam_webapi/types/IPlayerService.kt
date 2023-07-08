@@ -31,10 +31,10 @@ data class OwnedGames(
 
 /**
  * @property appId[AppId] An integer containing the program's ID.
- * @property playtimeForever[Int] An integer of the the player's total playtime, denoted in minutes.
- * @property playtimeWindowsForever[Int] An integer of the the player's total playtime on Windows, denoted in minutes.
- * @property playtimeMACForever[Int] An integer of the the player's total playtime on MacOS, denoted in minutes.
- * @property playtimeLinuxForever[Int] An integer of the the player's total playtime on Linux, denoted in minutes.
+ * @property playtimeForever[Int] An integer of the player's total playtime, denoted in minutes.
+ * @property playtimeWindowsForever[Int] An integer of the player's total playtime on Windows, denoted in minutes.
+ * @property playtimeMACForever[Int] An integer of the player's total playtime on macOS, denoted in minutes.
+ * @property playtimeLinuxForever[Int] An integer of the player's total playtime on Linux, denoted in minutes.
  */
 @Serializable
 data class Game(
@@ -146,16 +146,16 @@ data class RecentlyPlayedGames(
  * @property appId[AppId] An integer containing the program's ID.
  * @property name[String] A string containing the program's publicly facing title.
  * @property playtime2Weeks[Int] An integer of the player's playtime in the past 2 weeks, denoted in minutes.
- * @property playtimeForever[Int] An integer of the the player's total playtime, denoted in minutes.
+ * @property playtimeForever[Int] An integer of the player's total playtime, denoted in minutes.
  * @property imgIconURL[String] The program icon's file name, accessible at:
  *           http://media.steampowered.com/steamcommunity/public/images/apps/APPID/IMG_ICON_URL.jpg, replacing "APPID"
  *           and "IMG_ICON_URL" as necessary.
  * @property imgLogoURL[String] The program logo's file name, accessible at:
  *           http://media.steampowered.com/steamcommunity/public/images/apps/APPID/IMG_LOGO_URL.jpg, replacing "APPID"
  *           and "IMG_ICON_URL" as necessary.
- * @property playtimeWindowsForever[Int] An integer of the the player's total playtime on Windows, denoted in minutes.
- * @property playtimeMACForever[Int] An integer of the the player's total playtime on MacOS, denoted in minutes.
- * @property playtimeLinuxForever[Int] An integer of the the player's total playtime on Linux, denoted in minutes.
+ * @property playtimeWindowsForever[Int] An integer of the player's total playtime on Windows, denoted in minutes.
+ * @property playtimeMACForever[Int] An integer of the player's total playtime on macOS, denoted in minutes.
+ * @property playtimeLinuxForever[Int] An integer of the player's total playtime on Linux, denoted in minutes.
  */
 @Serializable
 data class RecentlyPlayedGame(

@@ -20,7 +20,7 @@ internal class ISteamWebApiUtilWrapperTest {
     private lateinit var steamWebApiUtil: ISteamWebApiUtilWrapper
 
     @BeforeTest
-    private fun setup() {
+    fun setup() {
         val webApiClientMock = HttpClient(MockEngine) {
             defaultConfig()
             engine {

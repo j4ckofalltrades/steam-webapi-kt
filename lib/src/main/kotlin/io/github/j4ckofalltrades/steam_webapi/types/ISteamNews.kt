@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 
 /**
  * @property maxLength[String] Maximum length for the content to return, if this is 0 the full content is returned, if
- *           it's less then a blurb is generated to fit.
+ *           it's less than a blurb is generated to fit.
  * @property endDate[Int] (Optional) Retrieve posts earlier than this date (unix epoch timestamp).
  * @property count[Int] (Optional) Number of posts to retrieve (default 20).
  * @property feeds[Int] (Optional) Comma-separated list of feed names to return news for.

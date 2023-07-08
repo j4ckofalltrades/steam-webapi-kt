@@ -22,7 +22,7 @@ internal class ISteamUserWrapperTest {
     private lateinit var userApiClient: ISteamUserWrapper
 
     @BeforeTest
-    private fun setup() {
+    fun setup() {
         val webApiClientMock = HttpClient(MockEngine) {
             defaultConfig()
             engine {
