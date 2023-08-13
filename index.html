@@ -6,10 +6,18 @@
     <link href="images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "";</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
 <script type="text/javascript" src="scripts/sourceset_dependencies.js" async="async"></script>
 <link href="styles/style.css" rel="Stylesheet">
 <link href="styles/jetbrains-mono.css" rel="Stylesheet">
@@ -21,6 +29,7 @@ if(savedDarkMode === true){
 <script type="text/javascript" src="scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
 <div class="navigation-wrapper" id="navigation-wrapper">
@@ -31,8 +40,11 @@ if(savedDarkMode === true){
             </a>
     </div>
     <div>
-1.2.1    </div>
+1.2.2    </div>
     <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":lib:dokkaHtml/main">JVM</button>
+        </div>
         <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
         <div id="searchBar"></div>
     </div>
@@ -46,7 +58,7 @@ if(savedDarkMode === true){
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>steam_webapi</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":lib:dokkaHtml/main"><p class="paragraph">Steam WebAPI wrapper in Kotlin and Ktor.</p></div></div>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":lib:dokkaHtml/main"><p class="paragraph">Steam WebAPI wrapper in Kotlin and Ktor.</p></div></div>
   </div>
   <h2 class="">Packages</h2>
   <div class="table"><a data-name="-1645520432%2FPackages%2F2083360698" anchor-label="io.github.j4ckofalltrades.steam_webapi.core" id="-1645520432%2FPackages%2F2083360698" data-filterable-set=":lib:dokkaHtml/main"></a>
@@ -58,7 +70,11 @@ if(savedDarkMode === true){
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1645520432%2FPackages%2F2083360698"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
-          <div class="pull-right"></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">JVM</div>
+            </div>
+          </div>
         </div>
         <div><span class="brief-comment"><a data-name="-1645520432%2FPackages%2F2083360698" anchor-label="io.github.j4ckofalltrades.steam_webapi.core" id="-1645520432%2FPackages%2F2083360698" data-filterable-set=":lib:dokkaHtml/main"></a>
             <p class="paragraph">Provides convenience methods and classes for interacting with the supported Steam WebAPI endpoints.</p>
@@ -74,7 +90,11 @@ if(savedDarkMode === true){
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-301157396%2FPackages%2F2083360698"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
-          <div class="pull-right"></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">JVM</div>
+            </div>
+          </div>
         </div>
         <div><span class="brief-comment"><a data-name="-301157396%2FPackages%2F2083360698" anchor-label="io.github.j4ckofalltrades.steam_webapi.types" id="-301157396%2FPackages%2F2083360698" data-filterable-set=":lib:dokkaHtml/main"></a>
             <p class="paragraph">Type definitions for the Steam WebAPI resources.</p>
@@ -90,7 +110,11 @@ if(savedDarkMode === true){
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="705749830%2FPackages%2F2083360698"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
-          <div class="pull-right"></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">JVM</div>
+            </div>
+          </div>
         </div>
         <div><span class="brief-comment"><a data-name="705749830%2FPackages%2F2083360698" anchor-label="io.github.j4ckofalltrades.steam_webapi.wrapper" id="705749830%2FPackages%2F2083360698" data-filterable-set=":lib:dokkaHtml/main"></a>
             <p class="paragraph">Wrappers around the following Steam WebAPI endpoints:</p>
@@ -100,7 +124,7 @@ if(savedDarkMode === true){
   </div>
 </div>
       <div class="footer">
-        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span
                 class="pull-right"><span>Generated by </span><a
                 href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
