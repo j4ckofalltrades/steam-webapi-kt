@@ -1,4 +1,3 @@
-import kotlinx.kover.api.DefaultIntellijEngine
 import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
@@ -7,17 +6,17 @@ plugins {
     kotlin("plugin.serialization") version "1.9.0"
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
     id("org.jetbrains.dokka") version "1.8.20"
-    id("org.jetbrains.kotlinx.kover") version "0.6.1"
+    id("org.jetbrains.kotlinx.kover") version "0.7.3"
     `java-library`
     `maven-publish`
     signing
 }
 
 group = "io.github.j4ckofalltrades"
-version = "1.2.1"
+version = "1.2.2"
 
 var kotlinVersion = "1.9.0"
-var ktorVersion = "2.3.0"
+var ktorVersion = "2.3.3"
 
 repositories {
     mavenCentral()
@@ -40,20 +39,22 @@ tasks.test {
     useJUnitPlatform()
 }
 
-kover {
-    engine.set(DefaultIntellijEngine)
+koverReport {
     filters {
-        classes {
-            excludes += listOf("*.types.*", "*.core.*")
+        excludes {
+            classes("*.types.*", "*.core.*")
         }
     }
-    xmlReport {
-        onCheck.set(true)
-        reportFile.set(layout.buildDirectory.file("kover/coverage/xml/result.xml"))
-    }
-    htmlReport {
-        onCheck.set(true)
-        reportDir.set(layout.buildDirectory.dir("kover/coverage/html"))
+
+    defaults {
+        xml {
+            onCheck = true
+            setReportFile(layout.buildDirectory.file("kover/coverage/xml/result.xml"))
+        }
+        html {
+            onCheck = true
+            setReportDir(layout.buildDirectory.dir("kover/coverage/html"))
+        }
     }
 }
 
