@@ -94,12 +94,6 @@ val steamUserApi = new ISteamUserWrapper("web_api_key")
 steamUserApi.getPlayerSummaries(listOf("steam_ids"))
 ```
 
-## Docs
-
-- [KDoc](https://j4ckofalltrades.github.io/steam-webapi-kt)
-
-- [Javadoc](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt/latest)
-
 ## Stats
 
 ![Alt](https://repobeats.axiom.co/api/embed/0de183cc9f2d5d764a1ba379aae44cbd811bee73.svg "Repobeats analytics image")
