@@ -1,15 +1,12 @@
-# steam-webapi-kt
+![steam-webapi-kt](https://res.cloudinary.com/j4ckofalltrades/image/upload/v1697278939/foss/gh-social-icons/steam-webapi-kt_g9la3j.png)
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.j4ckofalltrades/steam-webapi-kt.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.j4ckofalltrades/steam-webapi-kt)
 [![JitPack](https://jitpack.io/v/j4ckofalltrades/steam-webapi-kt.svg)](https://jitpack.io/#j4ckofalltrades/steam-webapi-kt)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.9.0-blueviolet)](https://kotlinlang.org)
-[![Ktor](https://img.shields.io/badge/ktor-2.3.3-blue)](https://ktor.io)
-
-[![KDoc](https://img.shields.io/badge/kdoc-1.2.2-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
 [![javadoc](https://javadoc.io/badge2/io.github.j4ckofalltrades/steam-webapi-kt/javadoc.svg)](https://javadoc.io/doc/io.github.j4ckofalltrades/steam-webapi-kt)
+[![KDoc](https://img.shields.io/badge/kdoc-1.2.2-green)](https://j4ckofalltrades.github.io/steam-webapi-kt)
 [![codecov](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt/branch/main/graph/badge.svg?token=2IDBVWIE7T)](https://codecov.io/gh/j4ckofalltrades/steam-webapi-kt)
 
-Steam WebAPI wrapper in Kotlin and Ktor.
+Steam WebAPI wrapper written in Kotlin and Ktor.
 
 ## Installation
 
