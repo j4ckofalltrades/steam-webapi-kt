@@ -1,14 +1,12 @@
 package io.github.j4ckofalltrades.steam_webapi.wrapper
 
 import io.github.j4ckofalltrades.steam_webapi.core.WebApiClient.defaultConfig
-import io.github.j4ckofalltrades.steam_webapi.types.GetOwnedGamesParams
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.ContentType
 import io.ktor.http.headersOf
 import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import kotlin.test.BeforeTest
 import kotlin.test.Test

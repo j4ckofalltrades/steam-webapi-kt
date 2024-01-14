@@ -6,10 +6,6 @@ Steam WebAPI wrapper in Kotlin and Ktor.
 
 Provides convenience methods and classes for interacting with the supported Steam WebAPI endpoints. 
 
-# Package io.github.j4ckofalltrades.steam_webapi.types
-
-Type definitions for the Steam WebAPI resources.
-
 # Package io.github.j4ckofalltrades.steam_webapi.wrapper
 
 Wrappers around the following Steam WebAPI endpoints:
