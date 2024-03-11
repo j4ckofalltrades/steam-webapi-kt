@@ -92,7 +92,9 @@ data class GameSchemaAchievement(
 )
 
 @Serializable
-data class GameUserStatsWrapper(@SerialName("playerstats") val playerStats: GameUserStats)
+data class GameUserStatsWrapper(
+    @SerialName("playerstats") val playerStats: GameUserStats,
+)
 
 /**
  * @property steamId[SteamId] SteamId of user.
@@ -196,7 +198,6 @@ class ISteamUserWrapper(
     val webApiKey: WebApiKey,
     val webApiClient: HttpClient = WebApiClient.default(),
 ) {
-
     /**
      * User friend list.
      *
@@ -204,7 +205,10 @@ class ISteamUserWrapper(
      * @param friendRelationship[FriendRelationship] Filter by a given role. Possible options are *all* (All roles),
      *        *friend*.
      * */
-    suspend fun getFriendList(steamId: SteamId, friendRelationship: FriendRelationship): FriendListWrapper =
+    suspend fun getFriendList(
+        steamId: SteamId,
+        friendRelationship: FriendRelationship,
+    ): FriendListWrapper =
         webApiClient.get(GET_FRIEND_LIST) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)

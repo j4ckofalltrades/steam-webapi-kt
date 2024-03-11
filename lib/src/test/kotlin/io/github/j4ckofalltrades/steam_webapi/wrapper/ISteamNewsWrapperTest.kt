@@ -14,56 +14,59 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class ISteamNewsWrapperTest {
-
     private val json = Json { ignoreUnknownKeys = true }
 
     private lateinit var newsApi: ISteamNewsWrapper
 
     @BeforeTest
     fun setup() {
-        val webApiClientMock = HttpClient(MockEngine) {
-            defaultConfig()
-            engine {
-                addHandler {
-                    val responseHeaders =
-                        headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                    when (it.url.encodedPath) {
-                        GET_NEWS_FOR_APP -> {
-                            respond(NEWS_FOR_APP_JSON, headers = responseHeaders)
-                        }
+        val webApiClientMock =
+            HttpClient(MockEngine) {
+                defaultConfig()
+                engine {
+                    addHandler {
+                        val responseHeaders =
+                            headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+                        when (it.url.encodedPath) {
+                            GET_NEWS_FOR_APP -> {
+                                respond(NEWS_FOR_APP_JSON, headers = responseHeaders)
+                            }
 
-                        else -> error("Unhandled ${it.url.encodedPath}")
+                            else -> error("Unhandled ${it.url.encodedPath}")
+                        }
                     }
                 }
             }
-        }
 
         newsApi = ISteamNewsWrapper(webApiClient = webApiClientMock)
     }
 
     @Test
-    fun getNewsForApp() = runBlocking {
-        assertEquals(
-            json.decodeFromString(NEWS_FOR_APP_JSON),
-            newsApi.getNewsForApp(appId = 570)
-        )
-    }
+    fun getNewsForApp() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(NEWS_FOR_APP_JSON),
+                newsApi.getNewsForApp(appId = 570)
+            )
+        }
 
     @Test
-    fun getNewsForAppWithParams() = runBlocking {
-        assertEquals(
-            json.decodeFromString(NEWS_FOR_APP_JSON),
-            newsApi.getNewsForApp(
-                appId = 570,
-                params = NewsForAppParams(
-                    maxLength = 5,
-                    endDate = getTimeMillis().toInt(),
-                    count = 10,
-                    feeds = "default"
+    fun getNewsForAppWithParams() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(NEWS_FOR_APP_JSON),
+                newsApi.getNewsForApp(
+                    appId = 570,
+                    params =
+                        NewsForAppParams(
+                            maxLength = 5,
+                            endDate = getTimeMillis().toInt(),
+                            count = 10,
+                            feeds = "default"
+                        )
                 )
             )
-        )
-    }
+        }
 }
 
 private const val NEWS_FOR_APP_JSON = """

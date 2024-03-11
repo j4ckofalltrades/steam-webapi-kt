@@ -13,7 +13,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class ISteamUserWrapperTest {
-
     private val steamId = "123"
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -21,86 +20,92 @@ internal class ISteamUserWrapperTest {
 
     @BeforeTest
     fun setup() {
-        val webApiClientMock = HttpClient(MockEngine) {
-            defaultConfig()
-            engine {
-                addHandler {
-                    val responseHeaders =
-                        headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                    when (it.url.encodedPath) {
-                        GET_FRIEND_LIST -> {
-                            respond(FRIEND_LIST_JSON, headers = responseHeaders)
-                        }
+        val webApiClientMock =
+            HttpClient(MockEngine) {
+                defaultConfig()
+                engine {
+                    addHandler {
+                        val responseHeaders =
+                            headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+                        when (it.url.encodedPath) {
+                            GET_FRIEND_LIST -> {
+                                respond(FRIEND_LIST_JSON, headers = responseHeaders)
+                            }
 
-                        GET_PLAYER_BANS -> {
-                            respond(PLAYER_BANS_JSON, headers = responseHeaders)
-                        }
+                            GET_PLAYER_BANS -> {
+                                respond(PLAYER_BANS_JSON, headers = responseHeaders)
+                            }
 
-                        GET_PLAYER_SUMMARIES -> {
-                            respond(PLAYER_SUMMARIES_JSON, headers = responseHeaders)
-                        }
+                            GET_PLAYER_SUMMARIES -> {
+                                respond(PLAYER_SUMMARIES_JSON, headers = responseHeaders)
+                            }
 
-                        GET_USER_GROUP_LIST -> {
-                            respond(USER_GROUP_LIST_JSON, headers = responseHeaders)
-                        }
+                            GET_USER_GROUP_LIST -> {
+                                respond(USER_GROUP_LIST_JSON, headers = responseHeaders)
+                            }
 
-                        RESOLVE_VANITY_URL -> {
-                            respond(VANITY_URL_JSON, headers = responseHeaders)
-                        }
+                            RESOLVE_VANITY_URL -> {
+                                respond(VANITY_URL_JSON, headers = responseHeaders)
+                            }
 
-                        else -> error("Unhandled ${it.url.encodedPath}")
+                            else -> error("Unhandled ${it.url.encodedPath}")
+                        }
                     }
                 }
             }
-        }
 
         userApiClient = ISteamUserWrapper(webApiKey = "123", webApiClient = webApiClientMock)
     }
 
     @Test
-    fun getFriendList(): Unit = runBlocking {
-        assertEquals(
-            json.decodeFromString(FRIEND_LIST_JSON),
-            userApiClient.getFriendList(steamId = steamId, friendRelationship = FriendRelationship.FRIEND)
-        )
+    fun getFriendList(): Unit =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(FRIEND_LIST_JSON),
+                userApiClient.getFriendList(steamId = steamId, friendRelationship = FriendRelationship.FRIEND)
+            )
 
-        assertEquals(
-            json.decodeFromString(FRIEND_LIST_JSON),
-            userApiClient.getFriendList(steamId = steamId, friendRelationship = FriendRelationship.ALL)
-        )
-    }
-
-    @Test
-    fun getPlayerBans(): Unit = runBlocking {
-        assertEquals(
-            json.decodeFromString(PLAYER_BANS_JSON),
-            userApiClient.getPlayerBans(listOf(steamId))
-        )
-    }
+            assertEquals(
+                json.decodeFromString(FRIEND_LIST_JSON),
+                userApiClient.getFriendList(steamId = steamId, friendRelationship = FriendRelationship.ALL)
+            )
+        }
 
     @Test
-    fun getPlayerSummaries(): Unit = runBlocking {
-        assertEquals(
-            json.decodeFromString(PLAYER_SUMMARIES_JSON),
-            userApiClient.getPlayerSummaries(listOf(steamId))
-        )
-    }
+    fun getPlayerBans(): Unit =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(PLAYER_BANS_JSON),
+                userApiClient.getPlayerBans(listOf(steamId))
+            )
+        }
 
     @Test
-    fun getUserGroupList(): Unit = runBlocking {
-        assertEquals(
-            json.decodeFromString(USER_GROUP_LIST_JSON),
-            userApiClient.getUserGroupList(steamId)
-        )
-    }
+    fun getPlayerSummaries(): Unit =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(PLAYER_SUMMARIES_JSON),
+                userApiClient.getPlayerSummaries(listOf(steamId))
+            )
+        }
 
     @Test
-    fun resolveVanityURL(): Unit = runBlocking {
-        assertEquals(
-            json.decodeFromString(VANITY_URL_JSON),
-            userApiClient.resolveVanityURL("https://steamcommunity.com/id/gabelogannewell")
-        )
-    }
+    fun getUserGroupList(): Unit =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(USER_GROUP_LIST_JSON),
+                userApiClient.getUserGroupList(steamId)
+            )
+        }
+
+    @Test
+    fun resolveVanityURL(): Unit =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(VANITY_URL_JSON),
+                userApiClient.resolveVanityURL("https://steamcommunity.com/id/gabelogannewell")
+            )
+        }
 }
 
 private const val FRIEND_LIST_JSON = """

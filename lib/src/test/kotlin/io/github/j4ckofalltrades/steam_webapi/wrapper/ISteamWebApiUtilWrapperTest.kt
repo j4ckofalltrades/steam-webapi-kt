@@ -13,52 +13,54 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class ISteamWebApiUtilWrapperTest {
-
     private val json = Json { ignoreUnknownKeys = true }
 
     private lateinit var steamWebApiUtil: ISteamWebApiUtilWrapper
 
     @BeforeTest
     fun setup() {
-        val webApiClientMock = HttpClient(MockEngine) {
-            defaultConfig()
-            engine {
-                addHandler {
-                    val responseHeaders =
-                        headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                    when (it.url.encodedPath) {
-                        GET_SERVER_INFO -> {
-                            respond(SERVER_INFO_JSON, headers = responseHeaders)
-                        }
+        val webApiClientMock =
+            HttpClient(MockEngine) {
+                defaultConfig()
+                engine {
+                    addHandler {
+                        val responseHeaders =
+                            headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+                        when (it.url.encodedPath) {
+                            GET_SERVER_INFO -> {
+                                respond(SERVER_INFO_JSON, headers = responseHeaders)
+                            }
 
-                        GET_SUPPORTED_API_LIST -> {
-                            respond(SUPPORTED_API_JSON, headers = responseHeaders)
-                        }
+                            GET_SUPPORTED_API_LIST -> {
+                                respond(SUPPORTED_API_JSON, headers = responseHeaders)
+                            }
 
-                        else -> error("Unhandled ${it.url.encodedPath}")
+                            else -> error("Unhandled ${it.url.encodedPath}")
+                        }
                     }
                 }
             }
-        }
 
         steamWebApiUtil = ISteamWebApiUtilWrapper(webApiClient = webApiClientMock)
     }
 
     @Test
-    fun getServerInfo(): Unit = runBlocking {
-        assertEquals(
-            json.decodeFromString(SERVER_INFO_JSON),
-            steamWebApiUtil.getServerInfo()
-        )
-    }
+    fun getServerInfo(): Unit =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(SERVER_INFO_JSON),
+                steamWebApiUtil.getServerInfo()
+            )
+        }
 
     @Test
-    fun getSupportedApiList(): Unit = runBlocking {
-        assertEquals(
-            json.decodeFromString(SUPPORTED_API_JSON),
-            steamWebApiUtil.getSupportedApiList()
-        )
-    }
+    fun getSupportedApiList(): Unit =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(SUPPORTED_API_JSON),
+                steamWebApiUtil.getSupportedApiList()
+            )
+        }
 }
 
 private const val SERVER_INFO_JSON = """

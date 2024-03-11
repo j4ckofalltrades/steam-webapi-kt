@@ -23,7 +23,9 @@ data class ServerInfo(
 )
 
 @Serializable
-data class SupportedAPI(@SerialName("apilist") val apiList: ApiList)
+data class SupportedAPI(
+    @SerialName("apilist") val apiList: ApiList,
+)
 
 @Serializable
 data class ApiList(val interfaces: List<Interface>)
@@ -74,7 +76,6 @@ data class Parameter(
  * contains methods relating to the Steam WebAPI itself.
  */
 class ISteamWebApiUtilWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
-
     /**
      * Returns WebAPI server time & checks server status.
      */

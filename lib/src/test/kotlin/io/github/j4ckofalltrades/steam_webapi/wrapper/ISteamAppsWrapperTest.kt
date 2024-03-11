@@ -13,52 +13,54 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class ISteamAppsWrapperTest {
-
     private val json = Json { ignoreUnknownKeys = true }
 
     private lateinit var appsApiClient: ISteamAppsWrapper
 
     @BeforeTest
     fun setup() {
-        val webApiClientMock = HttpClient(MockEngine) {
-            defaultConfig()
-            engine {
-                addHandler {
-                    val responseHeaders =
-                        headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                    when (it.url.encodedPath) {
-                        GET_APP_LIST -> {
-                            respond(APP_LIST_JSON, headers = responseHeaders)
-                        }
+        val webApiClientMock =
+            HttpClient(MockEngine) {
+                defaultConfig()
+                engine {
+                    addHandler {
+                        val responseHeaders =
+                            headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+                        when (it.url.encodedPath) {
+                            GET_APP_LIST -> {
+                                respond(APP_LIST_JSON, headers = responseHeaders)
+                            }
 
-                        UP_TO_DATE_CHECK -> {
-                            respond(UP_TO_DATE_CHECK_JSON, headers = responseHeaders)
-                        }
+                            UP_TO_DATE_CHECK -> {
+                                respond(UP_TO_DATE_CHECK_JSON, headers = responseHeaders)
+                            }
 
-                        else -> error("Unhandled ${it.url.encodedPath}")
+                            else -> error("Unhandled ${it.url.encodedPath}")
+                        }
                     }
                 }
             }
-        }
 
         appsApiClient = ISteamAppsWrapper(webApiClient = webApiClientMock)
     }
 
     @Test
-    fun getAppList() = runBlocking {
-        assertEquals(
-            json.decodeFromString(APP_LIST_JSON),
-            appsApiClient.getAppList()
-        )
-    }
+    fun getAppList() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(APP_LIST_JSON),
+                appsApiClient.getAppList()
+            )
+        }
 
     @Test
-    fun upToDateCheck() = runBlocking {
-        assertEquals(
-            json.decodeFromString(UP_TO_DATE_CHECK_JSON),
-            appsApiClient.upToDateCheck(appId = 570, version = "7.29d")
-        )
-    }
+    fun upToDateCheck() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(UP_TO_DATE_CHECK_JSON),
+                appsApiClient.upToDateCheck(appId = 570, version = "7.29d")
+            )
+        }
 }
 
 private const val APP_LIST_JSON = """

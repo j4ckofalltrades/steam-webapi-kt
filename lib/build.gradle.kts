@@ -2,11 +2,11 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import java.net.URL
 
 plugins {
-    kotlin("jvm") version "1.9.21"
-    kotlin("plugin.serialization") version "1.9.21"
-    id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
-    id("org.jetbrains.dokka") version "1.9.10"
-    id("org.jetbrains.kotlinx.kover") version "0.7.4"
+    kotlin("jvm") version "1.9.23"
+    kotlin("plugin.serialization") version "1.9.23"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
+    id("org.jetbrains.dokka") version "1.9.20"
+    id("org.jetbrains.kotlinx.kover") version "0.7.6"
     `java-library`
     `maven-publish`
     signing
@@ -15,8 +15,8 @@ plugins {
 group = "io.github.j4ckofalltrades"
 version = "1.2.2"
 
-var kotlinVersion = "1.9.21"
-var ktorVersion = "2.3.6"
+var kotlinVersion = "1.9.23"
+var ktorVersion = "2.3.9"
 
 repositories {
     mavenCentral()

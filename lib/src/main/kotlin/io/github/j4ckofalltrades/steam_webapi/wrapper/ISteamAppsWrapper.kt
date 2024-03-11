@@ -13,7 +13,9 @@ internal const val GET_APP_LIST = "/ISteamApps/GetAppList/v2"
 internal const val UP_TO_DATE_CHECK = "/ISteamApps/UpToDateCheck/v1"
 
 @Serializable
-data class AppListWrapper(@SerialName("applist") val appList: AppList)
+data class AppListWrapper(
+    @SerialName("applist") val appList: AppList,
+)
 
 @Serializable
 data class AppList(val apps: List<App>)
@@ -55,7 +57,6 @@ data class UpToDateCheck(
  * relating to the Steam apps.
  */
 class ISteamAppsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
-
     /**
      * Full list of every publicly facing program in the store/library.
      */
@@ -67,7 +68,10 @@ class ISteamAppsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
      * @param appId[AppId] AppID of game.
      * @param version[String] The installed version of the game.
      */
-    suspend fun upToDateCheck(appId: AppId, version: String): UpToDateCheckWrapper =
+    suspend fun upToDateCheck(
+        appId: AppId,
+        version: String,
+    ): UpToDateCheckWrapper =
         webApiClient.get(UP_TO_DATE_CHECK) {
             parameter("appid", appId)
             parameter("version", version)

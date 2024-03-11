@@ -134,7 +134,9 @@ data class SteamLevelWrapper(val response: SteamLevel)
  * @property playerLevel[Int] The Steam level of the player.
  */
 @Serializable
-data class SteamLevel(@SerialName("player_level") val playerLevel: Int)
+data class SteamLevel(
+    @SerialName("player_level") val playerLevel: Int,
+)
 
 @Serializable
 data class SharedGameDetailsWrapper(val response: SharedGameDetails)
@@ -143,7 +145,9 @@ data class SharedGameDetailsWrapper(val response: SharedGameDetails)
  * @property lenderSteamId[SteamId] Owner of shared game.
  */
 @Serializable
-data class SharedGameDetails(@SerialName("lender_steamid") val lenderSteamId: SteamId)
+data class SharedGameDetails(
+    @SerialName("lender_steamid") val lenderSteamId: SteamId,
+)
 
 @Serializable
 data class RecentlyPlayedGamesWrapper(val response: RecentlyPlayedGames)
@@ -199,14 +203,16 @@ class IPlayerServiceWrapper(
     private val webApiKey: WebApiKey,
     val webApiClient: HttpClient = WebApiClient.default(),
 ) {
-
     /**
      * Gets information about a player's recently played games.
      *
      * @param steamId[SteamId] The player we're asking about.
      * @param count The number of games to return (0/unset: all).
      */
-    suspend fun getRecentlyPlayedGames(steamId: SteamId, count: Int? = null): RecentlyPlayedGamesWrapper =
+    suspend fun getRecentlyPlayedGames(
+        steamId: SteamId,
+        count: Int? = null,
+    ): RecentlyPlayedGamesWrapper =
         webApiClient.get(GET_RECENTLY_PLAYED_GAMES) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)
@@ -220,7 +226,10 @@ class IPlayerServiceWrapper(
      * @param steamId[SteamId] The player we're asking about.
      * @param request[GetOwnedGamesParams] (Optional) Additional request parameters.
      */
-    suspend fun getOwnedGames(steamId: SteamId, request: GetOwnedGamesParams? = null): OwnedGamesWrapper =
+    suspend fun getOwnedGames(
+        steamId: SteamId,
+        request: GetOwnedGamesParams? = null,
+    ): OwnedGamesWrapper =
         webApiClient.get(GET_OWNED_GAMES) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)
@@ -266,7 +275,10 @@ class IPlayerServiceWrapper(
      * @param steamId[SteamId] The player we're asking about.
      * @param badge[Int] The badge we're asking about.
      */
-    suspend fun getCommunityBadgeProgress(steamId: SteamId, badge: Int? = null): PlayerBadgeProgress =
+    suspend fun getCommunityBadgeProgress(
+        steamId: SteamId,
+        badge: Int? = null,
+    ): PlayerBadgeProgress =
         webApiClient.get(GET_COMMUNITY_BADGE_PROGRESS) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)
@@ -280,7 +292,10 @@ class IPlayerServiceWrapper(
      * @param steamId[SteamId] The player we're asking about.
      * @param appIdPlaying[AppId] The game player is currently playing.
      */
-    suspend fun isPlayingSharedGame(steamId: SteamId, appIdPlaying: AppId): SharedGameDetailsWrapper =
+    suspend fun isPlayingSharedGame(
+        steamId: SteamId,
+        appIdPlaying: AppId,
+    ): SharedGameDetailsWrapper =
         webApiClient.get(IS_PLAYING_SHARED_GAME) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)

@@ -13,7 +13,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class IPlayerServiceWrapperTest {
-
     private val steamId = "123"
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -21,136 +20,146 @@ internal class IPlayerServiceWrapperTest {
 
     @BeforeTest
     fun setup() {
-        val webApiClientMock = HttpClient(MockEngine) {
-            defaultConfig()
-            engine {
-                addHandler {
-                    val responseHeaders =
-                        headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
-                    when (it.url.encodedPath) {
-                        GET_RECENTLY_PLAYED_GAMES -> {
-                            respond(RECENTLY_PLAYED_GAMES_JSON, headers = responseHeaders)
-                        }
+        val webApiClientMock =
+            HttpClient(MockEngine) {
+                defaultConfig()
+                engine {
+                    addHandler {
+                        val responseHeaders =
+                            headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+                        when (it.url.encodedPath) {
+                            GET_RECENTLY_PLAYED_GAMES -> {
+                                respond(RECENTLY_PLAYED_GAMES_JSON, headers = responseHeaders)
+                            }
 
-                        GET_OWNED_GAMES -> {
-                            respond(OWNED_GAMES_JSON, headers = responseHeaders)
-                        }
+                            GET_OWNED_GAMES -> {
+                                respond(OWNED_GAMES_JSON, headers = responseHeaders)
+                            }
 
-                        GET_STEAM_LEVEL -> {
-                            respond(PLAYER_LEVEL_JSON, headers = responseHeaders)
-                        }
+                            GET_STEAM_LEVEL -> {
+                                respond(PLAYER_LEVEL_JSON, headers = responseHeaders)
+                            }
 
-                        GET_BADGES -> {
-                            respond(PLAYER_BADGES_JSON, headers = responseHeaders)
-                        }
+                            GET_BADGES -> {
+                                respond(PLAYER_BADGES_JSON, headers = responseHeaders)
+                            }
 
-                        GET_COMMUNITY_BADGE_PROGRESS -> {
-                            respond(PLAYER_BADGE_PROGRESS_JSON, headers = responseHeaders)
-                        }
+                            GET_COMMUNITY_BADGE_PROGRESS -> {
+                                respond(PLAYER_BADGE_PROGRESS_JSON, headers = responseHeaders)
+                            }
 
-                        IS_PLAYING_SHARED_GAME -> {
-                            respond(PLAYING_SHARED_GAME_JSON, headers = responseHeaders)
-                        }
+                            IS_PLAYING_SHARED_GAME -> {
+                                respond(PLAYING_SHARED_GAME_JSON, headers = responseHeaders)
+                            }
 
-                        else -> error("Unhandled ${it.url.encodedPath}")
+                            else -> error("Unhandled ${it.url.encodedPath}")
+                        }
                     }
                 }
             }
-        }
 
         playerServiceClient = IPlayerServiceWrapper(webApiKey = "123", webApiClient = webApiClientMock)
     }
 
     @Test
-    fun getRecentlyPlayedGames() = runBlocking {
-        assertEquals(
-            json.decodeFromString(RECENTLY_PLAYED_GAMES_JSON),
-            playerServiceClient.getRecentlyPlayedGames(steamId)
-        )
+    fun getRecentlyPlayedGames() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(RECENTLY_PLAYED_GAMES_JSON),
+                playerServiceClient.getRecentlyPlayedGames(steamId)
+            )
 
-        assertEquals(
-            json.decodeFromString(RECENTLY_PLAYED_GAMES_JSON),
-            playerServiceClient.getRecentlyPlayedGames(steamId = steamId, count = 10)
-        )
-    }
+            assertEquals(
+                json.decodeFromString(RECENTLY_PLAYED_GAMES_JSON),
+                playerServiceClient.getRecentlyPlayedGames(steamId = steamId, count = 10)
+            )
+        }
 
     @Test
-    fun getOwnedGames() = runBlocking {
-        assertEquals(
-            json.decodeFromString(OWNED_GAMES_JSON),
-            playerServiceClient.getOwnedGames(steamId)
-        )
+    fun getOwnedGames() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(OWNED_GAMES_JSON),
+                playerServiceClient.getOwnedGames(steamId)
+            )
 
-        assertEquals(
-            json.decodeFromString(OWNED_GAMES_JSON),
-            playerServiceClient.getOwnedGames(
-                steamId = steamId,
-                request = GetOwnedGamesParams(
-                    includeAppInfo = true,
-                    includePlayedFreeGames = true,
-                    appIdsFilter = listOf(440, 570)
+            assertEquals(
+                json.decodeFromString(OWNED_GAMES_JSON),
+                playerServiceClient.getOwnedGames(
+                    steamId = steamId,
+                    request =
+                        GetOwnedGamesParams(
+                            includeAppInfo = true,
+                            includePlayedFreeGames = true,
+                            appIdsFilter = listOf(440, 570)
+                        )
                 )
             )
-        )
 
-        assertEquals(
-            json.decodeFromString(OWNED_GAMES_JSON),
-            playerServiceClient.getOwnedGames(
-                steamId = steamId,
-                request = GetOwnedGamesParams(
-                    includeAppInfo = false,
-                    includePlayedFreeGames = false,
+            assertEquals(
+                json.decodeFromString(OWNED_GAMES_JSON),
+                playerServiceClient.getOwnedGames(
+                    steamId = steamId,
+                    request =
+                        GetOwnedGamesParams(
+                            includeAppInfo = false,
+                            includePlayedFreeGames = false
+                        )
                 )
             )
-        )
 
-        assertEquals(
-            json.decodeFromString(OWNED_GAMES_JSON),
-            playerServiceClient.getOwnedGames(
-                steamId = steamId,
-                request = GetOwnedGamesParams(
-                    appIdsFilter = listOf()
+            assertEquals(
+                json.decodeFromString(OWNED_GAMES_JSON),
+                playerServiceClient.getOwnedGames(
+                    steamId = steamId,
+                    request =
+                        GetOwnedGamesParams(
+                            appIdsFilter = listOf()
+                        )
                 )
             )
-        )
-    }
+        }
 
     @Test
-    fun getSteamLevel() = runBlocking {
-        assertEquals(
-            json.decodeFromString(PLAYER_LEVEL_JSON),
-            playerServiceClient.getSteamLevel(steamId)
-        )
-    }
+    fun getSteamLevel() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(PLAYER_LEVEL_JSON),
+                playerServiceClient.getSteamLevel(steamId)
+            )
+        }
 
     @Test
-    fun getBadges() = runBlocking {
-        assertEquals(
-            json.decodeFromString(PLAYER_BADGES_JSON),
-            playerServiceClient.getBadges(steamId)
-        )
-    }
+    fun getBadges() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(PLAYER_BADGES_JSON),
+                playerServiceClient.getBadges(steamId)
+            )
+        }
 
     @Test
-    fun getCommunityBadgeProgress() = runBlocking {
-        assertEquals(
-            json.decodeFromString(PLAYER_BADGE_PROGRESS_JSON),
-            playerServiceClient.getCommunityBadgeProgress(steamId)
-        )
+    fun getCommunityBadgeProgress() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(PLAYER_BADGE_PROGRESS_JSON),
+                playerServiceClient.getCommunityBadgeProgress(steamId)
+            )
 
-        assertEquals(
-            json.decodeFromString(PLAYER_BADGE_PROGRESS_JSON),
-            playerServiceClient.getCommunityBadgeProgress(steamId = steamId, badge = 123)
-        )
-    }
+            assertEquals(
+                json.decodeFromString(PLAYER_BADGE_PROGRESS_JSON),
+                playerServiceClient.getCommunityBadgeProgress(steamId = steamId, badge = 123)
+            )
+        }
 
     @Test
-    fun isPlayingSharedGame() = runBlocking {
-        assertEquals(
-            json.decodeFromString(PLAYING_SHARED_GAME_JSON),
-            playerServiceClient.isPlayingSharedGame(steamId = steamId, appIdPlaying = 123)
-        )
-    }
+    fun isPlayingSharedGame() =
+        runBlocking {
+            assertEquals(
+                json.decodeFromString(PLAYING_SHARED_GAME_JSON),
+                playerServiceClient.isPlayingSharedGame(steamId = steamId, appIdPlaying = 123)
+            )
+        }
 }
 
 private const val OWNED_GAMES_JSON = """

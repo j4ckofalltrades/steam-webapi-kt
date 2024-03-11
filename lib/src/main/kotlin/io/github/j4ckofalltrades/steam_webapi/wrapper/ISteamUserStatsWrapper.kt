@@ -29,7 +29,9 @@ enum class FriendRelationship(val value: String) {
 }
 
 @Serializable
-data class FriendListWrapper(@SerialName("friendslist") val friendsList: FriendList)
+data class FriendListWrapper(
+    @SerialName("friendslist") val friendsList: FriendList,
+)
 
 @Serializable
 data class FriendList(val friends: List<Friend>)
@@ -201,7 +203,6 @@ class ISteamUserStatsWrapper(
     private val webApiKey: WebApiKey,
     val webApiClient: HttpClient = WebApiClient.default(),
 ) {
-
     /**
      * Retrieves the global achievement percentages for the specified app.
      *
@@ -232,7 +233,11 @@ class ISteamUserStatsWrapper(
      * @param appId[AppId] AppID to get achievements for.
      * @param lang[String] (Optional) Language to return strings for.
      */
-    suspend fun getPlayerAchievements(steamId: SteamId, appId: AppId, lang: String? = null): PlayerStatsWrapper =
+    suspend fun getPlayerAchievements(
+        steamId: SteamId,
+        appId: AppId,
+        lang: String? = null,
+    ): PlayerStatsWrapper =
         webApiClient.get(GET_PLAYER_ACHIEVEMENTS) {
             parameter("steamid", steamId)
             parameter("appid", appId)
@@ -246,7 +251,10 @@ class ISteamUserStatsWrapper(
      * @param appId[AppId] AppId of the game.
      * @param lang[String] Localized language to return (english, french, etc.).
      */
-    suspend fun getSchemaForGame(appId: AppId, lang: String? = null): GameSchemaWrapper =
+    suspend fun getSchemaForGame(
+        appId: AppId,
+        lang: String? = null,
+    ): GameSchemaWrapper =
         webApiClient.get(GET_SCHEMA_FOR_GAME) {
             parameter("key", webApiKey)
             parameter("appid", appId)
@@ -260,7 +268,10 @@ class ISteamUserStatsWrapper(
      * @param steamId[SteamId] SteamId of user.
      * @param appId[AppId] AppId of game.
      */
-    suspend fun getUserStatsForGame(steamId: SteamId, appId: AppId): GameUserStatsWrapper =
+    suspend fun getUserStatsForGame(
+        steamId: SteamId,
+        appId: AppId,
+    ): GameUserStatsWrapper =
         webApiClient.get(GET_USER_STATS_FOR_GAME) {
             parameter("key", webApiKey)
             parameter("steamid", steamId)
@@ -275,7 +286,11 @@ class ISteamUserStatsWrapper(
      * @param count[Int] Number of stats get data for.
      * @param stats[List] Names of stat to get data for.
      */
-    suspend fun getGlobalStatsForGame(appId: AppId, count: Int, stats: List<String>): GlobalStatsForGameWrapper =
+    suspend fun getGlobalStatsForGame(
+        appId: AppId,
+        count: Int,
+        stats: List<String>,
+    ): GlobalStatsForGameWrapper =
         webApiClient.get(GET_GLOBAL_STATS_FOR_GAME) {
             parameter("appid", appId)
             parameter("count", count)

@@ -16,19 +16,19 @@ import kotlinx.serialization.json.Json
  * Provides the default HTTP client configured with the Steam WebAPI base url.
  */
 object WebApiClient {
-
     private val webApiBaseUrl = Url("https://api.steampowered.com")
-    private val defaultHttpClient = HttpClient(CIO) {
-        defaultConfig()
-        defaultRequest {
-            url.takeFrom(
-                URLBuilder().takeFrom(webApiBaseUrl)
-                    .apply {
-                        encodedPath += url.encodedPath
-                    }
-            )
+    private val defaultHttpClient =
+        HttpClient(CIO) {
+            defaultConfig()
+            defaultRequest {
+                url.takeFrom(
+                    URLBuilder().takeFrom(webApiBaseUrl)
+                        .apply {
+                            encodedPath += url.encodedPath
+                        }
+                )
+            }
         }
-    }
 
     fun HttpClientConfig<*>.defaultConfig() {
         install(ContentNegotiation) {

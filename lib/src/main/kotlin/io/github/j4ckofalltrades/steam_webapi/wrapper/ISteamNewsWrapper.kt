@@ -26,7 +26,9 @@ data class NewsForAppParams(
 )
 
 @Serializable
-data class AppNewsWrapper(@SerialName("appnews") val appNews: AppNews)
+data class AppNewsWrapper(
+    @SerialName("appnews") val appNews: AppNews,
+)
 
 /**
  * @property appId[AppId] AppID to retrieve news for.
@@ -79,14 +81,16 @@ data class NewsItem(
  * relating to the Steam news.
  */
 class ISteamNewsWrapper(val webApiClient: HttpClient = WebApiClient.default()) {
-
     /**
      * Get the news for the specified app.
      *
      * @param appId[AppId] AppID to retrieve news for.
      * @param params[NewsForAppParams] (Optional) Additional request parameters.
      */
-    suspend fun getNewsForApp(appId: AppId, params: NewsForAppParams = NewsForAppParams()): AppNewsWrapper =
+    suspend fun getNewsForApp(
+        appId: AppId,
+        params: NewsForAppParams = NewsForAppParams(),
+    ): AppNewsWrapper =
         webApiClient.get(GET_NEWS_FOR_APP) {
             parameter("appid", appId)
             parameter("count", params.count)

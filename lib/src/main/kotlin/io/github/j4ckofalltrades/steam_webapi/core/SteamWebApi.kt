@@ -17,7 +17,6 @@ typealias SteamId = String
  */
 @kotlinx.serialization.ExperimentalSerializationApi
 class SteamWebApi(private val webApikey: WebApiKey) {
-
     private val appsApi: ISteamAppsWrapper by lazy {
         ISteamAppsWrapper()
     }
