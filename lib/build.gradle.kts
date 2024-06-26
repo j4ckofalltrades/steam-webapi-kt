@@ -1,12 +1,13 @@
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.net.URL
 
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.23"
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
+    kotlin("jvm") version "2.0.0"
+    kotlin("plugin.serialization") version "2.0.0"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
     id("org.jetbrains.dokka") version "1.9.20"
-    id("org.jetbrains.kotlinx.kover") version "0.7.6"
+    id("org.jetbrains.kotlinx.kover") version "0.8.1"
     `java-library`
     `maven-publish`
     signing
@@ -15,8 +16,15 @@ plugins {
 group = "io.github.j4ckofalltrades"
 version = "1.2.2"
 
-var kotlinVersion = "1.9.23"
-var ktorVersion = "2.3.9"
+var kotlinVersion = "2.0.0"
+var ktorVersion = "2.3.12"
+
+kotlin {
+    compilerOptions {
+        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+        jvmTarget.set(JvmTarget.JVM_17)
+    }
+}
 
 repositories {
     mavenCentral()
@@ -39,21 +47,29 @@ tasks.test {
     useJUnitPlatform()
 }
 
-koverReport {
-    filters {
-        excludes {
-            classes("*.core.*")
+kover {
+    currentProject {
+        instrumentation {
+            excludedClasses.addAll("*.core.*")
         }
     }
 
-    defaults {
-        xml {
-            onCheck = true
-            setReportFile(layout.buildDirectory.file("kover/coverage/xml/result.xml"))
+    reports {
+        filters {
+            excludes {
+                classes("*.core.*")
+            }
         }
-        html {
-            onCheck = true
-            setReportDir(layout.buildDirectory.dir("kover/coverage/html"))
+
+        total {
+            xml {
+                onCheck = true
+                xmlFile.set(layout.buildDirectory.file("kover/coverage/xml/result.xml"))
+            }
+            html {
+                onCheck = true
+                htmlDir.set(layout.buildDirectory.dir("kover/coverage/html"))
+            }
         }
     }
 }
@@ -67,9 +83,6 @@ tasks.register("installGitHook", Copy::class) {
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     dependsOn("installGitHook")
-    kotlinOptions {
-        jvmTarget = "17"
-    }
 }
 
 // packaging
